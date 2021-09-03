@@ -20,9 +20,9 @@ clr.ImportExtensions(Revit.Elements)
 clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
 
-#import asd
-#clr.path.append('C:\Users\jeff.mercado\Downloads')
-#clr.AddReference('BimorphNodes')
+clr.AddReference('DSCoreNodes') 
+import DSCore
+from DSCore import *
 
 clr.AddReference('BimorphNodes')
 from Revit import Element as Bimorph#, LinkElement
