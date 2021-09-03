@@ -39,6 +39,14 @@ from Revit import LinkElement as LinkedBimorph
 def verif (d):
 	if d[0] == host and d[1] == hostname and d[2] == chr(49):
 		return True
+def fixrotation (rot):
+	if rot==180:
+		rot=0
+	elif rot>180:
+		rot=abs(rot-360)
+	else:
+		rot
+	return rot
 
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
@@ -77,19 +85,24 @@ try:
 		for n in m:
 			try:
 				intersections = Geometry.Intersect(BoundingBox.ToCuboid(a.BoundingBox),n.Location)[0]
+				nunwrap = UnwrapElement(n)
+				ntype = nunwrap.Document.GetElement(nunwrap.GetTypeId())		
+				aunwrap = UnwrapElement(a)
+				atype = aunwrap.Document.GetElement(aunwrap.GetTypeId())	
 				try:
 					pointofintersection = GeomCurves.PointAtParameter(intersections,0.5)
 				except:
 					pointofintersection = intersections
 				try:
-					rotangle = round(math.degrees(Vctr.AngleAboutAxis(a.Location.Direction,Vctr.XAxis(),Vctr.ZAxis()))%360,1)
+					#rotangle = round(math.degrees(Vctr.AngleAboutAxis(a.Location.Direction,Vctr.XAxis(),Vctr.ZAxis()))%360,1)
+					rotangle = (Vctr.AngleAboutAxis(a.Location.Direction,Vctr.XAxis(),Vctr.ZAxis()))
 				except:
-					rotangel = 0
-				nunwrap = UnwrapElement(n)
-				ntype = nunwrap.Document.GetElement(nunwrap.GetTypeId())		
-				aunwrap = UnwrapElement(a)
-				atype = aunwrap.Document.GetElement(aunwrap.GetTypeId())	
-				out.append([a,n,intersections,atype,ntype,pointofintersection,rotangle])
+					try:
+						rotangle = math.degrees((aunwrap.Location).Rotation)
+					except:
+						rotangle = 0
+				rot=round(fixrotation(rotangle),1)
+				out.append([a,n,intersections,atype,ntype,pointofintersection,rot])
 			except:
 				pass
 except:
