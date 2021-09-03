@@ -82,7 +82,7 @@ try:
 				except:
 					pointofintersection = intersections
 				try:
-					rotangle = round(math.degrees(Vctr.AngleAboutAxis(a.Location.Direction,Vctr.XAxis(),Vctr.ZAxis())%360),1)
+					rotangle = round(math.degrees(Vctr.AngleAboutAxis(a.Location.Direction,Vctr.XAxis(),Vctr.ZAxis()))%360,1)
 				except:
 					rotangel = 0
 				nunwrap = UnwrapElement(n)
