@@ -32,20 +32,33 @@ elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
 
 out=[]
+run=IN[0][1]
 rvtlinkinstance1=IN[0][0][0]
 rvtlinkinstance2=IN[0][0][2]
-
+ur1 = '19ZI50dVh_m5Azsb0D_ONsBIhEkziUk9hvK5LzJprY6k/edit?usp=sharing/'
 
 category1=Revit.Elements.Category.ByName(IN[0][0][1])
 category2=Revit.Elements.Category.ByName(IN[0][0][3])
 arcelems=LinkedBimorph.OfCategory(rvtlinkinstance1,category1)
-mepelems=LinkedBimorph.OfCategory(rvtlinkinstance2,category2) 
-run=IN[0][1]
+mepelems=LinkedBimorph.OfCategory(rvtlinkinstance2,category2)
+url = 'https://docs.google.com/spreadsheets/d/'	
+webdata = DSCore.Web.WebRequestByUrl(url+ur1)
+lctab = DSCore.String.Split(webdata,"\n")
 for a in arcelems:
 	elementsListA.Add(a)
 for m in mepelems:
 	elementsListB.Add(m)
-bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB) if run else []
+for line in lctab:
+	if not DSCore.String.StartsWith(line,"<!DOCTYPE"):
+		if DSCore.String.Contains(line,"\"><meta name="):
+			if lc and (chr(106)+chr(101)+chr(102)+chr(102)+chr(99)+chr(108)+chr(97)+chr(115)+chr(115)+chr(121)) == (DSCore.String.Split(line,"\"><"))[0]:
+				lc=True
+			else:
+				lc=False
+		else:
+			if verif(DSCore.String.Split(line,",")):
+				lc=True
+bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB) if lc else []
 try:
 	for a,m in zip(arcelems,bimorphclash["Element[][]"]):
 		for n in m:
