@@ -2,6 +2,7 @@
 #jayperson.mercado@gmail.com
 import sys
 #sys.path.append(C....\bimorphNodes\bin')
+import os as os
 import clr
 
 clr.AddReference('ProtoGeometry')
