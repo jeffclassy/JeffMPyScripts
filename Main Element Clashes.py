@@ -8,7 +8,9 @@ clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript.Geometry import *
 from Autodesk.DesignScript.Geometry import Curve as GeomCurves
 
-clr.AddReference('BimorphNodes')
+import asd
+asd.path.append('C:\Users\jaypm.mercado\Downloads')
+asd.AddReference('BimorphNodes')
 from Revit import Element as Bimorph#, LinkElement
 from Revit import LinkElement as LinkedBimorph
 
