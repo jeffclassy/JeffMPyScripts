@@ -8,12 +8,6 @@ clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript.Geometry import *
 from Autodesk.DesignScript.Geometry import Curve as GeomCurves
 
-import asd
-asd.path.append('C:\Users\jaypm.mercado\Downloads')
-asd.AddReference('BimorphNodes')
-from Revit import Element as Bimorph#, LinkElement
-from Revit import LinkElement as LinkedBimorph
-
 clr.AddReference('System')
 from System.Collections.Generic import List
 
@@ -24,6 +18,12 @@ clr.ImportExtensions(Revit.Elements)
 
 clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
+
+#import asd
+clr.path.append('C:\Users\jaypm.mercado\Downloads')
+clr.AddReference('BimorphNodes')
+from Revit import Element as Bimorph#, LinkElement
+from Revit import LinkElement as LinkedBimorph
 
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
