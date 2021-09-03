@@ -5,12 +5,17 @@ import sys
 #import os as os
 import socket
 import getpass
+import math
 host = socket.gethostname()
 hostname = getpass.getuser()
 import clr
 clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript.Geometry import *
 from Autodesk.DesignScript.Geometry import Curve as GeomCurves
+from Autodesk.DesignScript.Geometry import Point as Pnt
+from Autodesk.DesignScript.Geometry import Vector as Vctr
+
+
 
 clr.AddReference('System')
 from System.Collections.Generic import List
@@ -76,11 +81,15 @@ try:
 					pointofintersection = GeomCurves.PointAtParameter(intersections,0.5)
 				except:
 					pointofintersection = intersections
+				try:
+					rotangle = round(math.degrees(Vctr.AngleAboutAxis(a.Location.Direction,Vctr.XAxis(),Vctr.ZAxis()%360),1)
+				except:
+					rotangel = 0
 				nunwrap = UnwrapElement(n)
 				ntype = nunwrap.Document.GetElement(nunwrap.GetTypeId())		
 				aunwrap = UnwrapElement(a)
 				atype = aunwrap.Document.GetElement(aunwrap.GetTypeId())	
-				out.append([a,n,intersections,atype,ntype,pointofintersection])
+				out.append([a,n,intersections,atype,ntype,pointofintersection,rotangle])
 			except:
 				pass
 except:
