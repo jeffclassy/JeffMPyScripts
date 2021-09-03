@@ -20,8 +20,10 @@ clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
 
 #import asd
-clr.path.append('C:\Users\jaypm.mercado\Downloads')
-clr.AddReference('BimorphNodes')
+#clr.path.append('C:\Users\jeff.mercado\Downloads')
+#clr.AddReference('BimorphNodes')
+Apath=os.path.normpath('C:\Users\jeff.mercado\Downloads\BimorphNodes.dll')
+clr.AddReference(Apath)
 from Revit import Element as Bimorph#, LinkElement
 from Revit import LinkElement as LinkedBimorph
 
