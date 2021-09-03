@@ -96,8 +96,8 @@ for k,v in zip(in3,in4):
 	except:
 		uiradioarccategory[k.encode('utf-8').decode('utf-8')] = v
 uiradiomepcategory = uiradio("Select Category",0)
-in5 = ["Cable Tray","Conduits","Ducts","Duct Accessories","Pipes"]
-in6 = ["Cable Tray","Conduits","Ducts","Duct Accessories","Pipes"]
+in5 = ["Cable Trays","Conduits","Ducts","Duct Accessories","Pipes"]
+in6 = ["Cable Trays","Conduits","Ducts","Duct Accessories","Pipes"]
 for k,v in zip(in5,in6):
 	try:
 		uiradiomepcategory[str(k)] = v
