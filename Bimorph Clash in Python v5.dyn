@@ -1,0 +1,1240 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "Jeff Mercado Scripts - jayperson.mercado@gmail.com",
+  "Name": "Bimorph Clash in Python v5",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "LinkElement": {
+        "Key": "Revit.LinkElement",
+        "Value": "BimorphNodes.dll"
+      },
+      "Autodesk.BoundingBox": {
+        "Key": "Autodesk.DesignScript.Geometry.BoundingBox",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.BoundingBox": {
+        "Key": "Autodesk.DesignScript.Geometry.BoundingBox",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.Curve": {
+        "Key": "Autodesk.DesignScript.Geometry.Curve",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Curve": {
+        "Key": "Autodesk.DesignScript.Geometry.Curve",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "fdb39abfc8e24be1b3c719f0a5affb75",
+      "Inputs": [
+        {
+          "Id": "e19d6767937049f48fb51ba29cc1484e",
+          "Name": "script",
+          "Description": "Python script to run.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9a60d57ebefa455e95791358ec850c2d",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "88cd49d831a14baabfbf3ac46a977dd6",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7ff8fa14ddaa4452ace77a55923d8421",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b18ea2e4e4b14f0ab4f705d63f9fb501",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9bd19ea65d314c35b79eaec175ad5469",
+          "Name": "IN[4]",
+          "Description": "Input #4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0c4819a34352439d92c7f5cb31990d6d",
+          "Name": "IN[5]",
+          "Description": "Input #5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e6d64441a6d74ecbae5919bf5159ed06",
+          "Name": "IN[6]",
+          "Description": "Input #6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc5fe2b7e4194c399727453593397ae9",
+          "Name": "IN[7]",
+          "Description": "Input #7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "505319a6cee94b7d8caf6dee0adf98c8",
+          "Name": "IN[8]",
+          "Description": "Input #8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d8463a115fee4ad8b72916e0b703c451",
+          "Name": "IN[9]",
+          "Description": "Input #9",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "695cd552a8b7466996a442ad3afe5cb1",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs a IronPython script from a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "okbutton=\"Set Values\";\nrun=true;\ntitle=\"\";\nlogopath=\"\";\nhelp=null;\ncancelbutton=\"Cancel\";\nht=0;\nwd=400;\nlblwd=160;",
+      "Id": "ce0282b707e14ab48f222a5df60f1007",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "853ecf101cc343c4821e4961769c32ba",
+          "Name": "",
+          "Description": "okbutton",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bf51455721b04ca4ae67b75a3a77ec1d",
+          "Name": "",
+          "Description": "run",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "334d0e8b10464e949667479aba23f08a",
+          "Name": "",
+          "Description": "title",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b6fc889b2ea44f919ee5e0f4a92b374f",
+          "Name": "",
+          "Description": "logopath",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ff3ad2f95c8d41d19abf5bab866fd8d7",
+          "Name": "",
+          "Description": "help",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "827a3063cb534533ba383ebc3b5af4c4",
+          "Name": "",
+          "Description": "cancelbutton",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc9032e7c9ea4467a1bca7a096ddd62a",
+          "Name": "",
+          "Description": "ht",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0b99248791e848898385efc724a7b9d8",
+          "Name": "",
+          "Description": "wd",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1aee3bb0f6b6484caf0b5cd53d336f20",
+          "Name": "",
+          "Description": "lblwd",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "0135b151c9a44f83a74c6a09838071b2",
+      "Inputs": [
+        {
+          "Id": "4fea303f585f4aa79b527ceedaf9937a",
+          "Name": "script",
+          "Description": "Python script to run.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "103e1e43d39548db9aac5450f2911eb7",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs a IronPython script from a string."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "5c89548016504bd78368080159c1fccc",
+      "Inputs": [
+        {
+          "Id": "0dbe0f97cc3145c3a587dec929b1a3ba",
+          "Name": "script",
+          "Description": "Python script to run.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3b7eb63cc2e04c5f9c03d13edb3cb7fa",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2a3ba90e75514228832c10d4aad341a2",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs a IronPython script from a string."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import sys\r\nimport clr\r\nclr.AddReference('DSCoreNodes') \r\nimport DSCore\r\nfrom DSCore import *\r\n\r\nwebdata = DSCore.Web.WebRequestByUrl(\"https://raw.githubusercontent.com/jeffclassy/JeffMPyScripts/main/Input_Tabs.py\")\r\n\r\nOUT = webdata",
+      "VariableInputPorts": true,
+      "Id": "87f1a115d71244858d8fb7bf07719c73",
+      "Inputs": [
+        {
+          "Id": "893d5997ce34452dae26c40a3cefe3c6",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "882156bbe2de4b6aa747a2f6d633795e",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import sys\r\nimport clr\r\nclr.AddReference('DSCoreNodes') \r\nimport DSCore\r\nfrom DSCore import *\r\n\r\nwebdata = DSCore.Web.WebRequestByUrl(\"https://raw.githubusercontent.com/jeffclassy/JeffMPyScripts/main/DS%20JM%20Ui.py\")\r\n\r\nOUT = webdata",
+      "VariableInputPorts": true,
+      "Id": "2390d969af224e00ab6b719cdbf4b3c3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "388d8ca9814948a1a1298d57e9f7d455",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import sys\r\nimport clr\r\nclr.AddReference('DSCoreNodes') \r\nimport DSCore\r\nfrom DSCore import *\r\n\r\nwebdata = DSCore.Web.WebRequestByUrl(\"https://raw.githubusercontent.com/jeffclassy/JeffMPyScripts/main/Main%20Element%20Clashes.py\")\r\n\r\nOUT = webdata",
+      "VariableInputPorts": true,
+      "Id": "77b18c5b2969438f89723c3fae17bdeb",
+      "Inputs": [
+        {
+          "Id": "fc47d5823b0744ccac17ee698a0f80ff",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "195012c7d6554bed94681727154f02b0",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright JeffM Python Scripts\r\n#jayperson.mercado@gmail.com\r\nimport sys\r\n#sys.path.append(C....\\bimorphNodes\\bin')\r\n#import os as os\r\nimport socket\r\nimport getpass\r\nimport math\r\nhost = socket.gethostname()\r\nhostname = getpass.getuser()\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\nfrom Autodesk.DesignScript.Geometry import Curve as GeomCurves\r\nfrom Autodesk.DesignScript.Geometry import Solid as Sld\r\n#from Autodesk.DesignScript.Geometry import Point as Pnt\r\n#from Autodesk.DesignScript.Geometry import Vector as Vctr\r\n\r\nclr.AddReference('System')\r\nfrom System.Collections.Generic import List\r\n\r\nclr.AddReference('RevitNodes')\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference('DSCoreNodes') \r\nfrom DSCore import Web as wb\r\nfrom DSCore import String as strng\r\n\r\nclr.AddReference('BimorphNodes')\r\nfrom Revit import Element as Bimorph #, LinkElement\r\nfrom Revit import LinkElement as LinkedBimorph\r\nimport Curve as BMCurve\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\n# Start Transaction\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\nsolidlistA = List[Sld]()\r\ncurvelistB = List[BMCurve]()\r\n\r\ndef verif (d):\r\n\tif d[0] == host and d[1] == hostname and d[2] == chr(49):\r\n\t\treturn True\r\ndef fixrotation (rot):\r\n\tif rot==180:\r\n\t\trot=0\r\n\telif rot>180:\r\n\t\trot=abs(rot-360)\r\n\telse:\r\n\t\trot\r\n\treturn rot\r\ndef clash (arc,mep):\r\n\ttry:\t\t\r\n\t\tsolidlistA.Add(Sld.ByUnion(arc.Solids))\r\n\t\tcurvelistB.Add(mep.Location)\r\n\t\tintersect = BMCurve.SolidIntersection(solidlistA,curvelistB)\r\n\t\tsolidlistA.Clear()\r\n\t\tcurvelistB.Clear()\r\n\t\t#intersect = (Bimorph.IntersectsSolid((Sld.ByUnion(arc.Solids)),mep.Location,False))[\"Curve[]\"]\r\n\texcept:\r\n\t\ttry:\r\n\t\t\tintersect = Geometry.Intersect(arcsolid,mep.Location)[0]\r\n\t\texcept:\r\n\t\t\tintersect = None\r\n\treturn intersect\r\n\t\t\r\ndef getmidpoint (crv):\r\n\ttry:\r\n\t\tptoi = GeomCurves.PointAtParameter(crv,0.5)\r\n\t\treturn ptoi #point of intersection\r\n\texcept:\r\n\t\treturn crv\r\n\r\nelementsListA = List[Revit.Elements.Element]()\r\nelementsListB = List[Revit.Elements.Element]()\r\n\r\nout=[]\r\nrun=IN[0][1]\r\nrvtlinkinstance1=IN[0][0][0]\r\nrvtlinkinstance2=IN[0][0][2]\r\nur1 = '19ZI50dVh_m5Azsb0D_ONsBIhEkziUk9hvK5LzJprY6k/edit?usp=sharing/'\r\n\r\ncategory1=Revit.Elements.Category.ByName(IN[0][0][1])\r\ncategory2=Revit.Elements.Category.ByName(IN[0][0][3])\r\narcelems=LinkedBimorph.OfCategory(rvtlinkinstance1,category1)\r\nmepelems=LinkedBimorph.OfCategory(rvtlinkinstance2,category2)\r\nurl = 'https://docs.google.com/spreadsheets/d/'\t\r\nwebdata = wb.WebRequestByUrl(url+ur1)\r\nlctab = strng.Split(webdata,\"\\n\")\r\nfor a in arcelems:\r\n\telementsListA.Add(a)\r\nfor m in mepelems:\r\n\telementsListB.Add(m)\r\nlc=False\r\nfor line in lctab:\r\n\tif not strng.StartsWith(line,\"<!DOCTYPE\"):\r\n\t\tif strng.Contains(line,\"\\\"><meta name=\"):\r\n\t\t\tif lc and (chr(106)+chr(101)+chr(102)+chr(102)+chr(99)+chr(108)+chr(97)+chr(115)+chr(115)+chr(121)) == (strng.Split(line,\"\\\"><\"))[0]:\r\n\t\t\t\tlc=True\r\n\t\t\telse:\r\n\t\t\t\tlc=False\r\n\t\telse:\r\n\t\t\tif verif(strng.Split(line,\",\")):\r\n\t\t\t\tlc=True\r\n\t\t\t\r\nbimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)# if lc else []\r\ntry:\r\n\tfor a,m in zip(arcelems,bimorphclash[\"Element[][]\"]):\r\n\t\tfor n in m:\r\n\t\t\ttry:\r\n\t\t\t\t#intersections = clash(a,n)\r\n\t\t\t\t#ptoi = getmidpoint(intersections)\r\n\t\t\t\t\r\n\t\t\t\tnunwrap = UnwrapElement(n)\r\n\t\t\t\tntype = nunwrap.Document.GetElement(nunwrap.GetTypeId())\t\t\r\n\t\t\t\taunwrap = UnwrapElement(a)\r\n\t\t\t\tatype = aunwrap.Document.GetElement(aunwrap.GetTypeId())\t\r\n\t\t\t\tout.append([a,n,atype,ntype])#,pointofintersection,rot])\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\nexcept:\r\n\tout=[]\r\nTransactionManager.Instance.TransactionTaskDone()\r\nOUT = out\r\n",
+      "VariableInputPorts": true,
+      "Id": "4083753de243495eba6f962273bd263a",
+      "Inputs": [
+        {
+          "Id": "637a1249fb594ccfa2c16403eeac58ac",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e771e5ca42fd4820a134ee5e5d30f5ad",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright JeffM Python Scripts\r\n#jayperson.mercado@gmail.com\r\nimport sys\r\n#sys.path.append(C....\\bimorphNodes\\bin')\r\n#import os as os\r\nimport socket\r\nimport getpass\r\nimport math\r\nhost = socket.gethostname()\r\nhostname = getpass.getuser()\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\nfrom Autodesk.DesignScript.Geometry import Curve as GeomCurves\r\nfrom Autodesk.DesignScript.Geometry import Solid as Sld\r\n#from Autodesk.DesignScript.Geometry import Point as Pnt\r\n#from Autodesk.DesignScript.Geometry import Vector as Vctr\r\n\r\nclr.AddReference('System')\r\nfrom System.Collections.Generic import List\r\n\r\nclr.AddReference('RevitNodes')\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference('DSCoreNodes') \r\nfrom DSCore import Web as wb\r\nfrom DSCore import String as strng\r\n\r\nclr.AddReference('BimorphNodes')\r\nfrom Revit import Element as Bimorph#, LinkElement\r\nfrom Revit import LinkElement as LinkedBimorph\r\nimport Curve as BMCurve\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\n# Start Transaction\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\nsolidlistA = List[Sld]()\r\ncurvelistB = List[GeomCurves]()\r\ndef clash (arc,mep):\r\n\t\t\t\r\n\t#solidlistA.Add(Sld.ByUnion(arc.Solids))\r\n\t#GeomCurves.TrimByEndParameter(mep.Location,0.001)\r\n\tmepgeom = GeomCurves.TrimByEndParameter(mep.Location,0.99)\r\n\tcurvelistB.Add(mepgeom)\r\n\tintersect = BMCurve.SolidIntersection(Sld.ByUnion(arc.Solids),curvelistB)[\"Curve[]\"]\r\n\tsolidlistA.Clear()\r\n\tcurvelistB.Clear()\r\n\t\t#intersect = (Bimorph.IntersectsSolid((Sld.ByUnion(arc.Solids)),mep.Location,False))[\"Curve[]\"]\r\n\treturn intersect\r\n\t\r\nelementsListA = List[Revit.Elements.Element]()\r\nelementsListB = List[Revit.Elements.Element]()\r\nsolidListA = List[Sld]()\r\nsolidlista = List[Sld]()\r\ncurvelistb = List[BMCurve]()\r\nout=[]\r\nrun=IN[0][1]\r\n\r\narcelems=IN[0]\r\nmepelems=IN[1]\r\nfor a in arcelems:\r\n\telementsListA.Add(a)\r\nfor m in mepelems:\r\n\telementsListB.Add(m)\r\n\t\t\t\r\n#bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)# if lc else []\r\n\r\nfor a,b in zip(elementsListA,elementsListB):\t\r\n\t#listsolid = Sld.ByUnion(a.Solids)\r\n\tout.append(clash(a,b))\r\n\r\n\r\nTransactionManager.Instance.TransactionTaskDone()\r\nOUT = out\r\n",
+      "VariableInputPorts": true,
+      "Id": "1d972dbd490b4c81aeedc4bc67c15c9f",
+      "Inputs": [
+        {
+          "Id": "e39adc79d5154803b3036805cabed6fd",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f36482edf65d418d85f14a7aeeefb0c0",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ae8e876d3de14397bf62a50bbab01996",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "f1a7ddbd878c4e8383d1d02330869615",
+      "Inputs": [
+        {
+          "Id": "fdc1f0ef5e494b6983d741a9fc9f4a1e",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "19f4db85c54a46828faa1787bbac65b9",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e10c8517f5d948309e37c25dad63ec54",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0;\n1;",
+      "Id": "31e58772143f48e9afc9a59bd0ddd4ae",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "78828c175cf84e0281b81a2cca454080",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e0dae85c2004490caef7170af99e4439",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "ba12451c8527413688b7dcc3a474f109",
+      "Inputs": [
+        {
+          "Id": "db54ccae0e1a4130aac8835b816dbe56",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e13de99ac12c4bed8a12041db2961352",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5bff32c7c8a44ebba0027b563e638e5a",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "arc[3100..4000];",
+      "Id": "6441c749d22643f4ad48ae03ba0d01a6",
+      "Inputs": [
+        {
+          "Id": "1a3ba994e72840ba8daf0e342b03326d",
+          "Name": "arc",
+          "Description": "arc",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cfcc7addd38843bd997a031e73bc12b3",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "meps[3100..4000];",
+      "Id": "ffc2e4aaaea84d758121d3a7e5792996",
+      "Inputs": [
+        {
+          "Id": "282031236573410ebbb26779837935cf",
+          "Name": "meps",
+          "Description": "meps",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3d2835d9e097400aaec9b15233cf42e6",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Curve.SolidIntersection@Autodesk.DesignScript.Geometry.Solid,Autodesk.DesignScript.Geometry.Curve[],bool",
+      "Id": "be7d658e8396486399c01d8c4bd78cbc",
+      "Inputs": [
+        {
+          "Id": "35da7a25954e48b2b6948075ff94a4e6",
+          "Name": "solid",
+          "Description": "Input a solid or list of solids.\n\nSolid",
+          "UsingDefaultValue": false,
+          "Level": 3,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5d06efa69dc34f63b9e681c7efcc6e1d",
+          "Name": "curves",
+          "Description": "Input a list of Curves to intersect the solid or solids.\n\nCurve[]",
+          "UsingDefaultValue": false,
+          "Level": 3,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b2584d2640304d40acd1002081fc8c07",
+          "Name": "invert",
+          "Description": "True to return curve segments outside the solid. False to return curve segments inside the solid.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3ea8243d55e048f3a3a9fc4d94bdb869",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b4392dc102794197a4773503ed3a90e5",
+          "Name": "exceptions[]",
+          "Description": "int[]\r\rReturns indexes of any curves that fail the intersection function",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Finds and returns all intersecting curve segments between a solid and a list of curves. Setting invert to true has the reverse effect and trims curves that intersect the solid.\r\rThe exceptions output returns indexes of any curves that fail the intersection function.\r\rVisit bimorph.com/bimorph-nodes for support\n\nCurve.SolidIntersection (solid: Solid, curves: Curve[], invert: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.LinkElement.Location",
+      "Id": "e0a60c3ebb1342fe8fb51bc11bf603d7",
+      "Inputs": [
+        {
+          "Id": "002105c6ba234f8091d0811c0ac9d2d4",
+          "Name": "linkElement",
+          "Description": "Revit.LinkElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a59b1171a6544dbb86604dfca2da0fd5",
+          "Name": "Geometry",
+          "Description": "Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the location of this LinkElement at its host location.\r\rVisit bimorph.com/bimorph-nodes for support\n\nLinkElement.Location: Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.LinkElement.Solids",
+      "Id": "d90b3c2df55647e3bc68e90e90892ee7",
+      "Inputs": [
+        {
+          "Id": "cd08312f04e04cddb8775395f6558a1e",
+          "Name": "linkElement",
+          "Description": "Revit.LinkElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e320cb17305c47ada6e7e8ed9fe22b58",
+          "Name": "Solid[]",
+          "Description": "Solid[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Solids in this LinkElement at its host location.\r\rVisit bimorph.com/bimorph-nodes for support\n\nLinkElement.Solids: Solid[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Solid.ByUnion@Autodesk.DesignScript.Geometry.Solid[]",
+      "Id": "98907b472b244ce596c811f44d32e958",
+      "Inputs": [
+        {
+          "Id": "4c3073f5d9b34cf0ab52e548da33979b",
+          "Name": "solids",
+          "Description": "A collection of solids\n\nSolid[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b82f25e13e664b7892cc32ba6779a244",
+          "Name": "Solid",
+          "Description": "Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Union a collection of solids into one solid\n\nSolid.ByUnion (solids: Solid[]): Solid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.Simplify@double",
+      "Id": "b08b7d98024e4d50b95c324edeab80c0",
+      "Inputs": [
+        {
+          "Id": "7dfddcdcd9cb402091c33fa46e783b84",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "99f05fd76238418b948cda5f639a4146",
+          "Name": "tolerance",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8b2630bd4f554e339d8bcbbd86c5467d",
+          "Name": "Curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a new Curve approximated with the supplied tolerance\n\nCurve.Simplify (tolerance: double): Curve"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.TrimByEndParameter@double",
+      "Id": "b758b1268915476daa32f97d928109d0",
+      "Inputs": [
+        {
+          "Id": "cbd2bcb901ce43b2a0db48d5dba1070d",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d10f0bf7ada54a6186bc1b3aafe5ce53",
+          "Name": "endParameter",
+          "Description": "The parameter at which to start the trim\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d6e006326c304280af1648b057dfca09",
+          "Name": "Curve",
+          "Description": "A new Curve with the end removed",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Removes the end of the Curve at the specified parameter\n\nCurve.TrimByEndParameter (endParameter: double = 1): Curve"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "695cd552a8b7466996a442ad3afe5cb1",
+      "End": "637a1249fb594ccfa2c16403eeac58ac",
+      "Id": "e5ec7af26cd546a58467752b4880bd39"
+    },
+    {
+      "Start": "853ecf101cc343c4821e4961769c32ba",
+      "End": "88cd49d831a14baabfbf3ac46a977dd6",
+      "Id": "0ad1ad7b1bf147209f2217e8d9cc4b7f"
+    },
+    {
+      "Start": "bf51455721b04ca4ae67b75a3a77ec1d",
+      "End": "7ff8fa14ddaa4452ace77a55923d8421",
+      "Id": "dfba04f631df4524ba2a5105eb2fac09"
+    },
+    {
+      "Start": "334d0e8b10464e949667479aba23f08a",
+      "End": "b18ea2e4e4b14f0ab4f705d63f9fb501",
+      "Id": "be5ae1625a4849dd94913306716fe29e"
+    },
+    {
+      "Start": "b6fc889b2ea44f919ee5e0f4a92b374f",
+      "End": "9bd19ea65d314c35b79eaec175ad5469",
+      "Id": "36263410aacc46dc879fbdd68b259cd6"
+    },
+    {
+      "Start": "ff3ad2f95c8d41d19abf5bab866fd8d7",
+      "End": "0c4819a34352439d92c7f5cb31990d6d",
+      "Id": "1a4650745e66498d83e864e5154f7700"
+    },
+    {
+      "Start": "827a3063cb534533ba383ebc3b5af4c4",
+      "End": "e6d64441a6d74ecbae5919bf5159ed06",
+      "Id": "3d14f49167bc47fd89c10891b46b9721"
+    },
+    {
+      "Start": "cc9032e7c9ea4467a1bca7a096ddd62a",
+      "End": "dc5fe2b7e4194c399727453593397ae9",
+      "Id": "e29d7b070e2844759b3feb8acb7f3242"
+    },
+    {
+      "Start": "0b99248791e848898385efc724a7b9d8",
+      "End": "505319a6cee94b7d8caf6dee0adf98c8",
+      "Id": "90ff0e1291854bbbacefa3402cb560f9"
+    },
+    {
+      "Start": "1aee3bb0f6b6484caf0b5cd53d336f20",
+      "End": "d8463a115fee4ad8b72916e0b703c451",
+      "Id": "e29d44ae3ea04060b2990f0706200bc9"
+    },
+    {
+      "Start": "103e1e43d39548db9aac5450f2911eb7",
+      "End": "9a60d57ebefa455e95791358ec850c2d",
+      "Id": "a4927c272b1248159c07af8b1ce3f465"
+    },
+    {
+      "Start": "882156bbe2de4b6aa747a2f6d633795e",
+      "End": "4fea303f585f4aa79b527ceedaf9937a",
+      "Id": "738a00e183b844f99bdf5be655cf7ede"
+    },
+    {
+      "Start": "388d8ca9814948a1a1298d57e9f7d455",
+      "End": "e19d6767937049f48fb51ba29cc1484e",
+      "Id": "2f082594e84447aa857516aace922b41"
+    },
+    {
+      "Start": "195012c7d6554bed94681727154f02b0",
+      "End": "0dbe0f97cc3145c3a587dec929b1a3ba",
+      "Id": "5610c525d6994a80853aa2ebd4d3100b"
+    },
+    {
+      "Start": "e771e5ca42fd4820a134ee5e5d30f5ad",
+      "End": "fdc1f0ef5e494b6983d741a9fc9f4a1e",
+      "Id": "12735547572a400dafd1d45fc340db2f"
+    },
+    {
+      "Start": "e771e5ca42fd4820a134ee5e5d30f5ad",
+      "End": "db54ccae0e1a4130aac8835b816dbe56",
+      "Id": "46b1fe9d76b34915b808ff3991cd8d64"
+    },
+    {
+      "Start": "e10c8517f5d948309e37c25dad63ec54",
+      "End": "1a3ba994e72840ba8daf0e342b03326d",
+      "Id": "5b10c82ab9a244d7b69b45a55391b1ba"
+    },
+    {
+      "Start": "78828c175cf84e0281b81a2cca454080",
+      "End": "19f4db85c54a46828faa1787bbac65b9",
+      "Id": "fcff5ed7c8b54c72a0a5dc3dc45cfaeb"
+    },
+    {
+      "Start": "e0dae85c2004490caef7170af99e4439",
+      "End": "e13de99ac12c4bed8a12041db2961352",
+      "Id": "e26d32d3f28446c2b67bb770dd166906"
+    },
+    {
+      "Start": "5bff32c7c8a44ebba0027b563e638e5a",
+      "End": "282031236573410ebbb26779837935cf",
+      "Id": "15608b8d09284e2bbbac743f591036fb"
+    },
+    {
+      "Start": "cfcc7addd38843bd997a031e73bc12b3",
+      "End": "e39adc79d5154803b3036805cabed6fd",
+      "Id": "60c157ce7c5e405caa52bb60aa29e96c"
+    },
+    {
+      "Start": "cfcc7addd38843bd997a031e73bc12b3",
+      "End": "cd08312f04e04cddb8775395f6558a1e",
+      "Id": "b164455eb59c4e938e36e0b6ba852c3b"
+    },
+    {
+      "Start": "3d2835d9e097400aaec9b15233cf42e6",
+      "End": "f36482edf65d418d85f14a7aeeefb0c0",
+      "Id": "d68c825819e343c19d001272a0876fd9"
+    },
+    {
+      "Start": "3d2835d9e097400aaec9b15233cf42e6",
+      "End": "002105c6ba234f8091d0811c0ac9d2d4",
+      "Id": "00b9541462b94b26a837da0e46f0fea4"
+    },
+    {
+      "Start": "a59b1171a6544dbb86604dfca2da0fd5",
+      "End": "5d06efa69dc34f63b9e681c7efcc6e1d",
+      "Id": "ab5774d798a743b6a0a6cf452f231baa"
+    },
+    {
+      "Start": "e320cb17305c47ada6e7e8ed9fe22b58",
+      "End": "4c3073f5d9b34cf0ab52e548da33979b",
+      "Id": "c2f5e16caa5047d88b2a5fba95390a24"
+    },
+    {
+      "Start": "b82f25e13e664b7892cc32ba6779a244",
+      "End": "35da7a25954e48b2b6948075ff94a4e6",
+      "Id": "a695b9a31c8f4b0e8d4f1b9e3a90ee66"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "bimorphNodes",
+      "Version": "3.0.3",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "be7d658e8396486399c01d8c4bd78cbc",
+        "e0a60c3ebb1342fe8fb51bc11bf603d7",
+        "d90b3c2df55647e3bc68e90e90892ee7"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 100.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -44.900805248429393,
+      "EyeY": 181.83647660767662,
+      "EyeZ": 15.294778041179024,
+      "LookX": 44.900805248429393,
+      "LookY": -181.83647660767662,
+      "LookZ": -15.294778041179024,
+      "UpX": 0.84341737542182638,
+      "UpY": 0.4539904997395478,
+      "UpZ": -0.28729733201476204
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "JeffM Python Script",
+        "Id": "fdb39abfc8e24be1b3c719f0a5affb75",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 549.52816911670493,
+        "Y": -613.52245482686942
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "ce0282b707e14ab48f222a5df60f1007",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 311.03849090989809,
+        "Y": -494.23944109491453
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "JeffM Python Script",
+        "Id": "0135b151c9a44f83a74c6a09838071b2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 310.09017958207346,
+        "Y": -585.18215031334978
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "JeffM Python Script",
+        "Id": "5c89548016504bd78368080159c1fccc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1763.4477917954941,
+        "Y": -971.92203957947845
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "87f1a115d71244858d8fb7bf07719c73",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 143.25503671489258,
+        "Y": -588.24852942998689
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "2390d969af224e00ab6b719cdbf4b3c3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 142.48704732284529,
+        "Y": -672.21033035627909
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "77b18c5b2969438f89723c3fae17bdeb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 147.164811544531,
+        "Y": -822.59193275130349
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "4083753de243495eba6f962273bd263a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 784.97328872379057,
+        "Y": -695.03791576204071
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "1d972dbd490b4c81aeedc4bc67c15c9f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2341.4348375199274,
+        "Y": -1053.9368125001092
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.GetItemAtIndex",
+        "Id": "f1a7ddbd878c4e8383d1d02330869615",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1258.7186192146637,
+        "Y": -817.76724088160211
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "31e58772143f48e9afc9a59bd0ddd4ae",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1148.0,
+        "Y": -637.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.GetItemAtIndex",
+        "Id": "ba12451c8527413688b7dcc3a474f109",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1261.400686527204,
+        "Y": -538.8322403774165
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "6441c749d22643f4ad48ae03ba0d01a6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.3450945901543,
+        "Y": -768.83424681264751
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "ffc2e4aaaea84d758121d3a7e5792996",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1498.8070994381574,
+        "Y": -553.4239102499464
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.SolidIntersection",
+        "Id": "be7d658e8396486399c01d8c4bd78cbc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 2369.6668758856135,
+        "Y": -619.11864274527954
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "LinkElement.Location",
+        "Id": "e0a60c3ebb1342fe8fb51bc11bf603d7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1786.2054285490763,
+        "Y": -540.38449857344574
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "LinkElement.Solids",
+        "Id": "d90b3c2df55647e3bc68e90e90892ee7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1744.7664053007427,
+        "Y": -788.189857598481
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Solid.ByUnion",
+        "Id": "98907b472b244ce596c811f44d32e958",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1837.5898173770101,
+        "Y": -695.36644552221355
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.Simplify",
+        "Id": "b08b7d98024e4d50b95c324edeab80c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2669.8579363917743,
+        "Y": -722.73869843206239
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.TrimByEndParameter",
+        "Id": "b758b1268915476daa32f97d928109d0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2566.3109491940586,
+        "Y": -826.28568562977784
+      }
+    ],
+    "Annotations": [],
+    "X": -2047.2552501427044,
+    "Y": 1319.52481814552,
+    "Zoom": 1.2137579980580639
+  }
+}
