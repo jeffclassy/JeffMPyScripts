@@ -3,8 +3,11 @@
 import sys
 #sys.path.append(C....\bimorphNodes\bin')
 #import os as os
+import socket
+import getpass
+host = socket.gethostname()
+hostname = getpass.getuser()
 import clr
-
 clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript.Geometry import *
 from Autodesk.DesignScript.Geometry import Curve as GeomCurves
@@ -21,12 +24,16 @@ clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
 
 clr.AddReference('DSCoreNodes') 
-import DSCore
-from DSCore import *
+from DSCore import Web as wb
+from DSCore import String as strng
 
 clr.AddReference('BimorphNodes')
 from Revit import Element as Bimorph#, LinkElement
 from Revit import LinkElement as LinkedBimorph
+
+def verif (d):
+	if d[0] == host and d[1] == hostname and d[2] == chr(49):
+		return True
 
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
@@ -42,21 +49,22 @@ category2=Revit.Elements.Category.ByName(IN[0][0][3])
 arcelems=LinkedBimorph.OfCategory(rvtlinkinstance1,category1)
 mepelems=LinkedBimorph.OfCategory(rvtlinkinstance2,category2)
 url = 'https://docs.google.com/spreadsheets/d/'	
-webdata = DSCore.Web.WebRequestByUrl(url+ur1)
-lctab = DSCore.String.Split(webdata,"\n")
+webdata = wb.WebRequestByUrl(url+ur1)
+lctab = strng.Split(webdata,"\n")
 for a in arcelems:
 	elementsListA.Add(a)
 for m in mepelems:
 	elementsListB.Add(m)
+lc=False
 for line in lctab:
-	if not DSCore.String.StartsWith(line,"<!DOCTYPE"):
-		if DSCore.String.Contains(line,"\"><meta name="):
-			if lc and (chr(106)+chr(101)+chr(102)+chr(102)+chr(99)+chr(108)+chr(97)+chr(115)+chr(115)+chr(121)) == (DSCore.String.Split(line,"\"><"))[0]:
+	if not strng.StartsWith(line,"<!DOCTYPE"):
+		if strng.Contains(line,"\"><meta name="):
+			if lc and (chr(106)+chr(101)+chr(102)+chr(102)+chr(99)+chr(108)+chr(97)+chr(115)+chr(115)+chr(121)) == (strng.Split(line,"\"><"))[0]:
 				lc=True
 			else:
 				lc=False
 		else:
-			if verif(DSCore.String.Split(line,",")):
+			if verif(strng.Split(line,",")):
 				lc=True
 bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB) if lc else []
 try:
