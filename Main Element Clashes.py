@@ -31,6 +31,8 @@ elementsListB = List[Revit.Elements.Element]()
 out=[]
 rvtlinkinstance1=IN[0][0][0]
 rvtlinkinstance2=IN[0][0][2]
+
+
 category1=Revit.Elements.Category.ByName(IN[0][0][1])
 category2=Revit.Elements.Category.ByName(IN[0][0][3])
 arcelems=LinkedBimorph.OfCategory(rvtlinkinstance1,category1)
