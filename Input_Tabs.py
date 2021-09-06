@@ -88,8 +88,8 @@ for k,v in zip(in1,in2):
 
 #category radiobox
 uiradioarccategory = uiradio("Select Category",0)
-in3 = ["Walls","Columns","Floors","Structural Framings"]
-in4 = ["Walls","Columns","Floors","Structural Framings"]
+in3 = ["Walls","Columns","Floors","Structural Framing"]
+in4 = ["Walls","Columns","Floors","Structural Framing"]
 for k,v in zip(in3,in4):
 	try:
 		uiradioarccategory[str(k)] = v
