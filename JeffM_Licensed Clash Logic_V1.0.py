@@ -100,6 +100,7 @@ for m in mepelems:
 	elementsListB.Add(m)
 arcelems.Clear()
 mepelems.Clear()
+lc=False
 for line in lctab:
 	if not strng.StartsWith(line,"<!DOCTYPE"):
 		if strng.Contains(line,"\"><meta name="):
