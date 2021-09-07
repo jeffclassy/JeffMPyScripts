@@ -83,6 +83,14 @@ def getmidpoint (crv):
 		return ptoi #point of intersection
 	except:
 		return crv
+def pointclosetowallmid (arc,ptoi):
+	try:
+		ptoiplane = Plane.CreateByNormalAndOrigin(ptoi,Vector.ZAxis())
+		raisedarcgeom = GeomCurves.PullOntoPlane(arc.Location,ptoiplane)
+		newptoi = Geometry.ClosestPointTo(raisedarcgeom,ptoi)
+	except:
+		newptoi = ptoi
+	return newptoi
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
 out=[]
@@ -123,7 +131,8 @@ for a,m in zip(arcelems,mepelems):
 		else:
 			pointofintersection = intersections
 		if isinstance(pointofintersection,Pnt):
-			midpoint.append(pointofintersection)
+			wallcrosspoint = pointclosetowallmid(pointofintersection)
+			midpoint.append(wallcrosspoint)
 			out.append([a,n])
 		#intersections=[]
 TransactionManager.Instance.TransactionTaskDone()
