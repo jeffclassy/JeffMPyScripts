@@ -85,8 +85,9 @@ def getmidpoint (crv):
 		return crv
 def pointclosetowallmid (arc,ptoi):
 	try:
-		ptoiplane = Plane.CreateByNormalAndOrigin(ptoi,Vector.ZAxis())
-		raisedarcgeom = GeomCurves.PullOntoPlane(arc.Location,ptoiplane)
+		arcstartpoint = a.Location.StartPoint
+		arcendpoint = a.Location.EndPoint		
+		raisedarcgeom = Ln.ByStartPointEndPoint(Pnt.ByCoordinates(arcstartpoint.X,arcstartpoint.Y,ptoi.Z),Pnt.ByCoordinates(arcendpoint.X,arcendpoint.Y,ptoi.Z))
 		newptoi = Geometry.ClosestPointTo(raisedarcgeom,ptoi)
 	except:
 		newptoi = ptoi
