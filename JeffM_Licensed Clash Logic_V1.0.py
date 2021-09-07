@@ -131,7 +131,7 @@ for a,m in zip(arcelems,mepelems):
 		else:
 			pointofintersection = intersections
 		if isinstance(pointofintersection,Pnt):
-			wallcrosspoint = pointclosetowallmid(pointofintersection)
+			wallcrosspoint = pointclosetowallmid(a,pointofintersection)
 			midpoint.append(wallcrosspoint)
 			out.append([a,n])
 		#intersections=[]
