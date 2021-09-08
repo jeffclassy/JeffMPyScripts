@@ -76,7 +76,3 @@ for i in el_ref:
 		pass		
 OUT =  List.UniqueItems(out)#typelist,out
 
-
-#Copyright(c) 2021 by Jeff Mercado
-#jayperson.mercado@gmail.com
-#based on dimitar, rhythm, and bimorph
