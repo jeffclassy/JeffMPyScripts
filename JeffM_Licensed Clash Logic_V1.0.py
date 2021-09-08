@@ -28,7 +28,7 @@ clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
 
 clr.AddReference('DSCoreNodes') 
-from DSCore import Web as wb
+from DSCore.Web import WebRequestByUrl as Wb
 from DSCore import String as strng
 from DSCore import List as lst
 #from DSCore import Revit.Elements as Rvt
@@ -92,16 +92,20 @@ def pointclosetowallmid (arc,ptoi):
 	except:
 		newptoi = ptoi
 	return newptoi
+
+def chop(double): #decrypts every 3char from a string of encrypted url
+	return [chr(int(double[i:i+3])-88) for i in range(0, len(double), 3)]
+
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
 out=[]
 midpoint=[]
 run=IN[0]
-ur1 = chr(49)+chr(57)+'ZI50dVh_m5Azsb0D_'+chr(79)+chr(78)+'sBIhEkziUk9hvK5LzJprY6k/edit?usp=sharing/'
+ur1 = '192204204200203146135135188199187203134191199199191196189134187199197135203200202189185188203192189'
 arcelems=IN[1] if isinstance(IN[1],list) else [IN[1]]
 mepelems=IN[2] if isinstance(IN[2],list) else [IN[2]]
-url = 'https://docs.google.com/spreadsheets/d/'	
-webdata = wb.WebRequestByUrl(url+ur1)
+url = '189204203135188135137145178161141136188174192183197141153210203186136156183167166203154161192157195210193173195145192206163141164210162200202177142195135189188193204123191193188149136'
+webdata = Wb(''.join(chop(ur1))+''.join(chop(url)))
 lctab = strng.Split(webdata,"\n")
 for a in arcelems:
 	elementsListA.Add(a)
