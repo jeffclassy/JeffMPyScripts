@@ -98,7 +98,7 @@ def pointclosetowallmid (arc,ptoi):
 
 def chop(double): #decrypts every 3char from a string of encrypted url
 	return [chr(int(double[i:i+3])-88) for i in range(0, len(double), 3)]
-lc=False
+lc=1==2
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
 out=[]
