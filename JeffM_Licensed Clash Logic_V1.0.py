@@ -27,6 +27,9 @@ clr.ImportExtensions(Revit.Elements)
 clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
 
+clr.AddReference('RevitAPIUI')
+from  Autodesk.Revit.UI import TaskDialog 
+
 clr.AddReference('DSCoreNodes') 
 from DSCore.Web import WebRequestByUrl as Wb
 from DSCore import String as strng
@@ -126,7 +129,9 @@ for line in lctab:
 				lc=True			
 bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)# if 
 arcelems = bimorphclash["intersectsWith[]"]
+arcelems = arcelems[0:200]
 mepelems = bimorphclash["Element[][]"]
+mepelems = mepelems[0:200]
 intersections=[]
 for a,m in zip(arcelems,mepelems):
 	for n in m:
@@ -141,4 +146,6 @@ for a,m in zip(arcelems,mepelems):
 			out.append([a,n])
 		#intersections=[]
 TransactionManager.Instance.TransactionTaskDone()
+if out==[] and not(lc):
+	TaskDialog.Show('License','Unlicensed User.')
 OUT = out,midpoint
