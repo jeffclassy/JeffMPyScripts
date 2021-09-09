@@ -98,7 +98,7 @@ def pointclosetowallmid (arc,ptoi):
 
 def chop(double): #decrypts every 3char from a string of encrypted url
 	return [chr(int(double[i:i+3])-88) for i in range(0, len(double), 3)]
-lc=1==2
+lc=False
 elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
 out=[]
@@ -116,7 +116,6 @@ for m in mepelems:
 	elementsListB.Add(m)
 arcelems.Clear()
 mepelems.Clear()
-lc=1==1
 for line in lctab:
 	if not strng.StartsWith(line,"<!DOCTYPE"):
 		if strng.Contains(line,"\"><meta name="):
