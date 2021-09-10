@@ -133,7 +133,7 @@ mepelems = bimorphclash["Element[][]"]
 #mepelems = mepelems[0:200]
 intersections=[]
 clashcount = 0
-clashcountlimit = 200
+clashcountlimit = 50
 for a,m in zip(arcelems,mepelems):
 	for n in m:
 		intersections = clash(a,n) if lc else 0
@@ -146,9 +146,9 @@ for a,m in zip(arcelems,mepelems):
 			midpoint.append(wallcrosspoint)
 			out.append([a,n])
 			clashcount = clashcount + 1
-		if clashcount <= clashcountlimit:
+		if clashcount >= clashcountlimit:
 			break
-	if clashcount <= clashcountlimit:
+	if clashcount >= clashcountlimit:
 		break
 TransactionManager.Instance.TransactionTaskDone()
 if out==[] and not(lc):
