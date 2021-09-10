@@ -134,7 +134,7 @@ if lc:
 	#mepelems = mepelems[0:200]
 	intersections=[]
 	clashcount = 0
-	clashcountlimit = 250
+	clashcountlimit = 200
 	for a,m in zip(arcelems,mepelems):
 		for n in m:
 			intersections = clash(a,n) #if lc else 0
