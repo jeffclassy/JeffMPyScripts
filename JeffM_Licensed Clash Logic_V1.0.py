@@ -128,10 +128,12 @@ for line in lctab:
 				lc=True			
 bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)# if 
 arcelems = bimorphclash["intersectsWith[]"]
-arcelems = arcelems[0:200]
+#arcelems = arcelems[0:200]
 mepelems = bimorphclash["Element[][]"]
-mepelems = mepelems[0:200]
+#mepelems = mepelems[0:200]
 intersections=[]
+clashcount = 0
+clashcountlimit = 200
 for a,m in zip(arcelems,mepelems):
 	for n in m:
 		intersections = clash(a,n) if lc else 0
@@ -143,7 +145,9 @@ for a,m in zip(arcelems,mepelems):
 			wallcrosspoint = pointclosetowallmid(a,pointofintersection)
 			midpoint.append(wallcrosspoint)
 			out.append([a,n])
-		#intersections=[]
+			clashcount = clashcount + 1
+		break if clashcount => clashcountlimit
+	break if clashcount => clashcountlimit
 TransactionManager.Instance.TransactionTaskDone()
 if out==[] and not(lc):
 	TaskDialog.Show('License','Unlicensed User.')
