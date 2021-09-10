@@ -134,12 +134,12 @@ if lc:
 	#mepelems = mepelems[0:200]
 	intersections=[]
 	clashcount = 0
-	clashcountlimit = 50
+	clashcountlimit = 200
 	for a,m in zip(arcelems,mepelems):
 		for n in m:
-			intersections = clash(a,n) if lc else 0
+			intersections = clash(a,n) #if lc else 0
 			if not(intersections == 0 or intersections==[]):
-				pointofintersection = getmidpoint(intersections) if lc else 0
+				pointofintersection = getmidpoint(intersections) #if lc else 0
 			else:
 				pointofintersection = intersections
 			if isinstance(pointofintersection,Pnt):
