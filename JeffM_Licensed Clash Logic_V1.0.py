@@ -146,8 +146,10 @@ for a,m in zip(arcelems,mepelems):
 			midpoint.append(wallcrosspoint)
 			out.append([a,n])
 			clashcount = clashcount + 1
-		break if clashcount => clashcountlimit
-	break if clashcount => clashcountlimit
+		if clashcount => clashcountlimit:
+			break
+	if clashcount => clashcountlimit:
+		break
 TransactionManager.Instance.TransactionTaskDone()
 if out==[] and not(lc):
 	TaskDialog.Show('License','Unlicensed User.')
