@@ -96,7 +96,7 @@ def pointclosetowallmid (arc,ptoi):
 		newptoi = ptoi
 	return newptoi
 
-def chop(double): #decrypts every 3char from a string of encrypted url
+def chop(double): 
 	return [chr(int(double[i:i+3])-88) for i in range(0, len(double), 3)]
 lc=False
 elementsListA = List[Revit.Elements.Element]()
