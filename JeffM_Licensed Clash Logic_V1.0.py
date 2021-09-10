@@ -126,31 +126,34 @@ for line in lctab:
 		else:
 			if verif(strng.Split(line,",")):
 				lc=True			
-bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)# if 
-arcelems = bimorphclash["intersectsWith[]"]
-#arcelems = arcelems[0:200]
-mepelems = bimorphclash["Element[][]"]
-#mepelems = mepelems[0:200]
-intersections=[]
-clashcount = 0
-clashcountlimit = 50
-for a,m in zip(arcelems,mepelems):
-	for n in m:
-		intersections = clash(a,n) if lc else 0
-		if not(intersections == 0 or intersections==[]):
-			pointofintersection = getmidpoint(intersections) if lc else 0
-		else:
-			pointofintersection = intersections
-		if isinstance(pointofintersection,Pnt):
-			wallcrosspoint = pointclosetowallmid(a,pointofintersection)
-			midpoint.append(wallcrosspoint)
-			out.append([a,n])
-			clashcount = clashcount + 1
+if lc:
+	bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)
+	arcelems = bimorphclash["intersectsWith[]"]
+	#arcelems = arcelems[0:200]
+	mepelems = bimorphclash["Element[][]"]
+	#mepelems = mepelems[0:200]
+	intersections=[]
+	clashcount = 0
+	clashcountlimit = 50
+	for a,m in zip(arcelems,mepelems):
+		for n in m:
+			intersections = clash(a,n) if lc else 0
+			if not(intersections == 0 or intersections==[]):
+				pointofintersection = getmidpoint(intersections) if lc else 0
+			else:
+				pointofintersection = intersections
+			if isinstance(pointofintersection,Pnt):
+				wallcrosspoint = pointclosetowallmid(a,pointofintersection)
+				midpoint.append(wallcrosspoint)
+				out.append([a,n])
+				clashcount = clashcount + 1
+			if clashcount >= clashcountlimit:
+				break
 		if clashcount >= clashcountlimit:
 			break
-	if clashcount >= clashcountlimit:
-		break
-TransactionManager.Instance.TransactionTaskDone()
-if out==[] and not(lc):
+else:	
 	TaskDialog.Show('License','Unlicensed User.')
+TransactionManager.Instance.TransactionTaskDone()
+#if out==[] and not(lc):
+#	TaskDialog.Show('License','Unlicensed User.')
 OUT = out,midpoint
