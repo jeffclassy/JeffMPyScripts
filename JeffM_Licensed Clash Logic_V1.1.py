@@ -68,11 +68,8 @@ def fixrotation (rot):
 	else:
 		rot
 	return rot
-def clash (arc,mep):
+def clash (arc,mep,arcloc,meploc):
 	intersect = 0
-	meploc = mep.Location
-	arcloc = arc.Location
-
 	if isinstance(meploc,GeomCurves) and isinstance(arcloc,GeomCurves) and UnwrapElement(arc).Category.Name =='Walls':		
 		#arcloctop = GeomCurves.Translate(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height"))
 		arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height")) #Srfc.ByLoft([arcloc,arcloctop])		
@@ -154,8 +151,10 @@ if lc:
 	clashcount = 0
 	clashcountlimit = 200
 	for a,m in zip(arcelems,mepelems):
+		aloc = a.Location
 		for n in m:
-			intersections = clash(a,n) #if lc else 0
+			nloc = n.Location
+			intersections = clash(a,n,aloc,nloc) #if lc else 0
 			pointofintersection = intersections
 			if isinstance(pointofintersection,Pnt):
 				#wallcrosspoint = pointclosetowallmid(a,pointofintersection)
