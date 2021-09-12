@@ -68,38 +68,38 @@ def fixrotation (rot):
 	else:
 		rot
 	return rot
-def clash (arc,mep,arcloc,meploc):
-	intersect = 0
-	if isinstance(meploc,GeomCurves) and isinstance(arcloc,GeomCurves) and UnwrapElement(arc).Category.Name =='Walls':		
-		#arcloctop = GeomCurves.Translate(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height"))
-		arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height")) #Srfc.ByLoft([arcloc,arcloctop])		
-		intersect = Geometry.Intersect(arcsurface,meploc) #line to surface #Surface vs Line given the line crosses the surface
-		if intersect == []:
-			intersect = [Geometry.ClosestPointTo(arcsurface,meploc)]
-		intersect = intersect[0]
-	elif isinstance(meploc,GeomCurves) and isinstance(arcloc,Pnt):
-		arcangle = math.degrees(UnwrapElement(a).Location.Rotation)  #Geometry.Intersect(Sld.ByUnion(arc.Solids),meploc)
-		basepoint1 = GeomCurves.Translate(arcloc,Vector.XAxis(),1000)
+def getarcsurface(arc):
+	arcloc = arc.Location
+	arccategory = UnwrapElement(arc).Category.Name
+	if arccategory == 'Walls' and isinstance(arcloc,GeomCurves) :
+		arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height"))
+	elif arccategory != 'Walls' and isinstance(arcloc,Pnt):
+		arcangle = math.degrees(UnwrapElement(arc).Location.Rotation)
+    		basepoint1 = GeomCurves.Translate(arcloc,Vector.XAxis(),1000)
 		basepoint2 = GeomCurves.Translate(arcloc,Vector.XAxis(),-1000)
 		arcline = Ln.ByStartPointEndPoint(basepoint1,basepoint2)
-		arcsurface = GeomCurves.Extrude(arcline,Vector.ZAxis(),arc.GetParameterValueByName("Height")) #assuming Height contains value
+		archeight = 3000 if arc.GetParameterValueByName("Height") is None else arc.GetParameterValueByName("Height")
+		arcsurface = GeomCurves.Extrude(arcline,Vector.ZAxis(),archeight) #assuming Height contains value
 		arcsurface = Geometry.Rotate(arcsurface,arcloc,Vector.ZAxis(),arcangle)
-		intersect = Geometry.Intersect(arcsurface,meploc)
-		if intersect == []:
-			intersect = [Geometry.ClosestPointTo(arcsurface,meploc)]
-		intersect = intersect[0]
-		#if isinstance(intersect[0],GeomCurves):
-		#	intersect = GeomCurves.PointAtParameter(intersect[0],0.5)
+	elif arccategory == 'Floors':
+		#get from archilab
 	else:
-		intersect = 11
-
+		arcsurface = []
+	return arcsurface
+def clash (arcsurface,meploc):
+	intersect = 0
+	intersect = Geometry.Intersect(arcsurface,meploc) #line to surface #Surface vs Line given the line crosses the surface
+	if intersect == []:
+		try:
+			intersect = [Geometry.ClosestPointTo(arcsurface,meploc)]
+		except:
+			intersect = 0
+	intersect = intersect[0]
+	if not(isinstance(intersect,Pnt)):
+		intersect = 0
 	return intersect		
 def getmidpoint (crv):
-	try:
-		ptoi = GeomCurves.PointAtParameter(crv,0.5)
-		return ptoi #point of intersection
-	except:
-		return crv
+	return GeomCurves.PointAtParameter(crv,0.5)
 def pointclosetowallmid (arc,ptoi):
 	try:
 		arcstartpoint = a.Location.StartPoint
@@ -151,11 +151,10 @@ if lc:
 	clashcount = 0
 	clashcountlimit = 200
 	for a,m in zip(arcelems,mepelems):
-		aloc = a.Location
+		arcsurface = getarcsurface(a)
 		for n in m:
 			nloc = n.Location
-			intersections = clash(a,n,aloc,nloc) #if lc else 0
-			pointofintersection = intersections
+			pointofintersection = clash(arcsurface,nloc)
 			if isinstance(pointofintersection,Pnt):
 				#wallcrosspoint = pointclosetowallmid(a,pointofintersection)
 				midpoint.append(pointofintersection)
