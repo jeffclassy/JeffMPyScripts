@@ -161,7 +161,7 @@ for line in lctab:
 clashcount = 0	
 if lc:
 	if clashcountlimit <= 10:	
-		TaskDialog.Show('License','Your license is limited to ' + clashcountlimit + ' clashes.' )	
+		TaskDialog.Show('License','Your license is limited to ' + str(clashcountlimit) + ' clashes.' )	
 	bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)
 	arcelems = bimorphclash["intersectsWith[]"]
 	#arcelems = arcelems[0:200]
