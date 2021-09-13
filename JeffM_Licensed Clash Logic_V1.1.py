@@ -85,11 +85,13 @@ def getarcsurface(arc):
 		arcsurface = Geometry.Rotate(arcsurface,arcloc,Vector.ZAxis(),arcangle)
 	elif arccategory == 'Floors':
 		flr = UnwrapElement(arc)
+		newcs = arc.TotalTransform
 		for ref in HostObjectUtils.GetTopFaces(flr):
 			boundaryloops = flr.GetGeometryObjectFromReference(ref).GetEdgesAsCurveLoops()
 			for loop in boundaryloops:
 				floorsketch=[x.ToProtoType() for x in loop]
 		arcsurface=Srfc.ByPatch(PlyCrv.ByJoinedCurves(floorsketch,0.01))
+		arcsurface=Geometry.Transform(arcsurface,newcs)
 	else:
 		arcsurface = []
 	return arcsurface
@@ -149,7 +151,6 @@ for line in lctab:
 				lc=True
 				clashcountlimit = int(limiter(strng.Split(line,",")))
 clashcount = 0	
-sample = 0
 if lc:
 	bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)
 	arcelems = bimorphclash["intersectsWith[]"]
