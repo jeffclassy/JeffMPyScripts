@@ -60,6 +60,8 @@ empty=[]
 def verif (d):
 	if d[0] == host and d[1] == hostname and d[2] == chr(49):
 		return True
+def limiter (d):
+	return d[3]
 def fixrotation (rot):
 	if rot==180:
 		rot=0
@@ -93,16 +95,15 @@ def getarcsurface(arc):
 	return arcsurface
 def clash (arcsurface,meploc):
 	intersect = 0
-	intersect = Geometry.Intersect(arcsurface,meploc) #line to surface #Surface vs Line given the line crosses the surface
-	if intersect == []:
-		try:
-			intersect = [Geometry.ClosestPointTo(arcsurface,meploc)]
-		except:
-			intersect = 0
-	intersect = intersect[0]
-	if not(isinstance(intersect,Pnt)):
-		intersect = 0
-	return intersect		
+	try:
+		intersect1 = Geometry.Intersect(arcsurface,meploc) #line to surface #Surface vs Line given the line crosses the surface		
+		if intersect1 == []:
+			itersect = Geometry.ClosestPointTo(arcsurface,meploc)
+		else:
+			intersect = intersect1[0]
+	except:
+		intersect = 2
+	return intersect	
 def getmidpoint (crv):
 	return GeomCurves.PointAtParameter(crv,0.5)
 def pointclosetowallmid (arc,ptoi):
@@ -142,10 +143,13 @@ for line in lctab:
 				lc=True
 			else:
 				lc=False
+				clashcountlimit = 1
 		else:
 			if verif(strng.Split(line,",")):
-				lc=True		
-lc=True				
+				lc=True
+				clashcountlimit = int(limiter(strng.Split(line,",")))
+clashcount = 0	
+sample = 0
 if lc:
 	bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)
 	arcelems = bimorphclash["intersectsWith[]"]
@@ -153,24 +157,20 @@ if lc:
 	mepelems = bimorphclash["Element[][]"]
 	#mepelems = mepelems[0:200]
 	intersections=[]
-	clashcount = 0
-	clashcountlimit = 200
 	for a,m in zip(arcelems,mepelems):
 		arcsurface = getarcsurface(a)
 		for n in m:
+			if clashcount==clashcountlimit:
+				break
 			if isinstance(arcsurface,Srfc):					
 				nloc = n.Location
 				pointofintersection = clash(arcsurface,nloc)
 				if isinstance(pointofintersection,Pnt):
 					midpoint.append(pointofintersection)
 					out.append([a,n])
-					clashcount = clashcount + 1
-				if clashcount >= clashcountlimit:
-					break
-			else:
-				break
-		if clashcount >= clashcountlimit:
-			break
+					clashcount += 1
+
+
 else:	
 	TaskDialog.Show('License','Unlicensed User.')
 TransactionManager.Instance.TransactionTaskDone()
