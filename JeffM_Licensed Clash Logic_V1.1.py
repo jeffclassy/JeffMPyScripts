@@ -81,6 +81,10 @@ def getarcsurface(arc):
 				floorsketch=[x.ToProtoType() for x in loop]
 		arcsurface=Srfc.ByPatch(PlyCrv.ByJoinedCurves(floorsketch,0.01))
 		arcsurface=Geometry.Transform(arcsurface,newcs)
+	elif arccategory == 'Structural Framing':
+		#arcunwrap = UnwrapElement(arc)
+		#arctype = arcunwrap.Document.GetElement(arcunwrap.GetTypeId())
+		arcsurface=0
 	else:
 		arcloc = arc.Location
 		if arccategory == 'Walls' and isinstance(arcloc,GeomCurves) :
