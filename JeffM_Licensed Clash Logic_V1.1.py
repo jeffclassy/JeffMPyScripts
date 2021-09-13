@@ -82,9 +82,12 @@ def getarcsurface(arc):
 		arcsurface=Srfc.ByPatch(PlyCrv.ByJoinedCurves(floorsketch,0.01))
 		arcsurface=Geometry.Transform(arcsurface,newcs)
 	elif arccategory == 'Structural Framing':
-		#arcunwrap = UnwrapElement(arc)
-		#arctype = arcunwrap.Document.GetElement(arcunwrap.GetTypeId())
-		arcsurface=0
+		arcunwrap = UnwrapElement(arc)
+		arctype = arcunwrap.Document.GetElement(arcunwrap.GetTypeId())
+		archeight = arctype.LookupParameter('h').AsDouble() * 304.8
+		arcloc = arc.Location
+		arcloc = Geometry.Translate(arcloc,Vector.ZAxis(),-archeight/2)
+		arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),archeight)
 	else:
 		arcloc = arc.Location
 		if arccategory == 'Walls' and isinstance(arcloc,GeomCurves) :
@@ -157,6 +160,8 @@ for line in lctab:
 				clashcountlimit = int(limiter(strng.Split(line,",")))
 clashcount = 0	
 if lc:
+	if clashcountlimit <= 10:	
+		TaskDialog.Show('License','Your license is limited to ' + clashcountlimit + ' clashes.' )	
 	bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)
 	arcelems = bimorphclash["intersectsWith[]"]
 	#arcelems = arcelems[0:200]
