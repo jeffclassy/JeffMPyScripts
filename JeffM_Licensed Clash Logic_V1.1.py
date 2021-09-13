@@ -16,7 +16,7 @@ from Autodesk.DesignScript.Geometry import Curve as GeomCurves
 from Autodesk.DesignScript.Geometry import Solid as Sld
 from Autodesk.DesignScript.Geometry import Point as Pnt
 from Autodesk.DesignScript.Geometry import Line as Ln
-from Autodesk.DesignScript.Geometry import Surface as Srfc
+from Autodesk.DesignScript.Geometry import Surface as Srfc, PolyCurve as PlyCrv
 
 clr.AddReference('System')
 from System.Collections.Generic import List
@@ -82,7 +82,12 @@ def getarcsurface(arc):
 		arcsurface = GeomCurves.Extrude(arcline,Vector.ZAxis(),archeight) #assuming Height contains value
 		arcsurface = Geometry.Rotate(arcsurface,arcloc,Vector.ZAxis(),arcangle)
 	elif arccategory == 'Floors':
-		#get from archilab
+		flr = UnwrapElement(arc)
+		for ref in HostObjectUtils.GetTopFaces(flr):
+			boundaryloops = flr.GetGeometryObjectFromReference(ref).GetEdgesAsCurveLoops()
+			for loop in boundaryloops:
+				floorsketch=[x.ToProtoType() for x in loop]
+		arcsurface=Srfc.ByPatch(PlyCrv.ByJoinedCurves(floorsketch,0.01))
 	else:
 		arcsurface = []
 	return arcsurface
@@ -153,14 +158,16 @@ if lc:
 	for a,m in zip(arcelems,mepelems):
 		arcsurface = getarcsurface(a)
 		for n in m:
-			nloc = n.Location
-			pointofintersection = clash(arcsurface,nloc)
-			if isinstance(pointofintersection,Pnt):
-				#wallcrosspoint = pointclosetowallmid(a,pointofintersection)
-				midpoint.append(pointofintersection)
-				out.append([a,n])
-				clashcount = clashcount + 1
-			if clashcount >= clashcountlimit:
+			if isinstance(arcsurface,Srfc):					
+				nloc = n.Location
+				pointofintersection = clash(arcsurface,nloc)
+				if isinstance(pointofintersection,Pnt):
+					midpoint.append(pointofintersection)
+					out.append([a,n])
+					clashcount = clashcount + 1
+				if clashcount >= clashcountlimit:
+					break
+			else:
 				break
 		if clashcount >= clashcountlimit:
 			break
@@ -169,4 +176,4 @@ else:
 TransactionManager.Instance.TransactionTaskDone()
 #if out==[] and not(lc):
 #	TaskDialog.Show('License','Unlicensed User.')
-OUT = out,midpoint#,bimorphclash#.GetRotation
+OUT = out,midpoint
