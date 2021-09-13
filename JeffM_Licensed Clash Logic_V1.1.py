@@ -70,20 +70,9 @@ def fixrotation (rot):
 	else:
 		rot
 	return rot
-def getarcsurface(arc):
-	arcloc = arc.Location
+def getarcsurface(arc):	
 	arccategory = UnwrapElement(arc).Category.Name
-	if arccategory == 'Walls' and isinstance(arcloc,GeomCurves) :
-		arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height"))
-	elif arccategory != 'Walls' and isinstance(arcloc,Pnt):
-		arcangle = math.degrees(UnwrapElement(arc).Location.Rotation)
-    		basepoint1 = GeomCurves.Translate(arcloc,Vector.XAxis(),1000)
-		basepoint2 = GeomCurves.Translate(arcloc,Vector.XAxis(),-1000)
-		arcline = Ln.ByStartPointEndPoint(basepoint1,basepoint2)
-		archeight = 3000 if arc.GetParameterValueByName("Height") is None else arc.GetParameterValueByName("Height")
-		arcsurface = GeomCurves.Extrude(arcline,Vector.ZAxis(),archeight) #assuming Height contains value
-		arcsurface = Geometry.Rotate(arcsurface,arcloc,Vector.ZAxis(),arcangle)
-	elif arccategory == 'Floors':
+	if arccategory == 'Floors':
 		flr = UnwrapElement(arc)
 		newcs = arc.TotalTransform
 		for ref in HostObjectUtils.GetTopFaces(flr):
@@ -93,7 +82,19 @@ def getarcsurface(arc):
 		arcsurface=Srfc.ByPatch(PlyCrv.ByJoinedCurves(floorsketch,0.01))
 		arcsurface=Geometry.Transform(arcsurface,newcs)
 	else:
-		arcsurface = []
+		arcloc = arc.Location
+		if arccategory == 'Walls' and isinstance(arcloc,GeomCurves) :
+			arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height"))
+		elif arccategory != 'Walls' and isinstance(arcloc,Pnt):
+			arcangle = math.degrees(UnwrapElement(arc).Location.Rotation)
+	    		basepoint1 = GeomCurves.Translate(arcloc,Vector.XAxis(),1000)
+			basepoint2 = GeomCurves.Translate(arcloc,Vector.XAxis(),-1000)
+			arcline = Ln.ByStartPointEndPoint(basepoint1,basepoint2)
+			archeight = 3000 if arc.GetParameterValueByName("Height") is None else arc.GetParameterValueByName("Height")
+			arcsurface = GeomCurves.Extrude(arcline,Vector.ZAxis(),archeight) #assuming Height contains value
+			arcsurface = Geometry.Rotate(arcsurface,arcloc,Vector.ZAxis(),arcangle)
+		else:
+			arcsurface = 0
 	return arcsurface
 def clash (arcsurface,meploc):
 	intersect = 0
