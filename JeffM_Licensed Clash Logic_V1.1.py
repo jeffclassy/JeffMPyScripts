@@ -7,8 +7,8 @@ import sys
 import socket
 import getpass
 import math
-host = socket.gethostname()
-hostname = getpass.getuser()
+host = socket.gethostname().upper()
+hostname = getpass.getuser().lower()
 import clr
 clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript.Geometry import *
