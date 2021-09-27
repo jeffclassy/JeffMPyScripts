@@ -133,6 +133,7 @@ elementsListA = List[Revit.Elements.Element]()
 elementsListB = List[Revit.Elements.Element]()
 out=[]
 midpoint=[]
+err=[]
 #run=IN[0]
 ur1 = '192204204200203146135135188199187203134191199199191196189134187199197135203200202189185188203192189'
 arcelems=IN[1] if isinstance(IN[1],list) else [IN[1]]
@@ -180,6 +181,8 @@ if lc:
 					midpoint.append(pointofintersection)
 					out.append([a,n])
 					clashcount += 1
+				else:
+					err.append([arcsurface,nloc])
 
 
 else:	
@@ -187,4 +190,4 @@ else:
 TransactionManager.Instance.TransactionTaskDone()
 #if out==[] and not(lc):
 #	TaskDialog.Show('License','Unlicensed User.')
-OUT = out,midpoint
+OUT = out,midpoint,err
