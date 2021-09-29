@@ -91,13 +91,14 @@ def getarcsurface(arc):
 	else:
 		arcloc = arc.Location
 		if arccategory == 'Walls' and isinstance(arcloc,GeomCurves) :
+			arcloc = GeomCurves.Translate(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Base Offset"))
 			arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),arc.GetParameterValueByName("Unconnected Height"))
 		elif arccategory != 'Walls' and isinstance(arcloc,Pnt):
 			arcangle = math.degrees(UnwrapElement(arc).Location.Rotation)
 	    		basepoint1 = GeomCurves.Translate(arcloc,Vector.XAxis(),1000)
 			basepoint2 = GeomCurves.Translate(arcloc,Vector.XAxis(),-1000)
 			arcline = Ln.ByStartPointEndPoint(basepoint1,basepoint2)
-			archeight = 3000 if arc.GetParameterValueByName("Height") is None else arc.GetParameterValueByName("Height")
+			archeight = 4000 if arc.GetParameterValueByName("Height") is None else arc.GetParameterValueByName("Height")
 			arcsurface = GeomCurves.Extrude(arcline,Vector.ZAxis(),archeight) #assuming Height contains value
 			arcsurface = Geometry.Rotate(arcsurface,arcloc,Vector.ZAxis(),arcangle)
 		else:
