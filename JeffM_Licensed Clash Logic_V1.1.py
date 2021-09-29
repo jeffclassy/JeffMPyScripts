@@ -70,6 +70,19 @@ def fixrotation (rot):
 	else:
 		rot
 	return rot
+def beamjustification (beam,ht):
+	zjust = beam.GetParameterValueByName("z Justification")
+	zoffset = beam.GetParameterValueByName("z Offset Value")
+	beamloc = beam.Location
+	if zjust == 0: #Top
+		beamloc = Geometry.Translate(beamloc,Vector.ZAxis(),-ht + zoffset)
+	elif zjust == 1 or zjust == 2: #Center or Origin
+		beamloc = Geometry.Translate(beamloc,Vector.ZAxis(),-ht/2 + zoffset)
+	elif Zjust == 3: #Bottom
+		beamloc = Geometry.Translate(beamloc,Vector.ZAxis(),zoffset)
+	else:
+		zoffset = 0 
+	return beamloc
 def getarcsurface(arc):	
 	arccategory = UnwrapElement(arc).Category.Name
 	if arccategory == 'Floors':
@@ -84,9 +97,8 @@ def getarcsurface(arc):
 	elif arccategory == 'Structural Framing':
 		arcunwrap = UnwrapElement(arc)
 		arctype = arcunwrap.Document.GetElement(arcunwrap.GetTypeId())
-		archeight = arctype.LookupParameter('h').AsDouble() * 304.8
-		arcloc = arc.Location
-		arcloc = Geometry.Translate(arcloc,Vector.ZAxis(),-archeight/2)
+		archeight = arctype.LookupParameter('h').AsDouble() * 304.8		
+		arcloc = beamjustification(arc,archeight)		
 		arcsurface = GeomCurves.Extrude(arcloc,Vector.ZAxis(),archeight)
 	else:
 		arcloc = arc.Location
