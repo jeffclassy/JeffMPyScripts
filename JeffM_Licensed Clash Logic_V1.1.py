@@ -10,6 +10,9 @@ import math
 host = socket.gethostname().upper()
 hostname = getpass.getuser().lower()
 import clr
+# outlook send BIM Guru, www.bimguru.com.au
+clr.AddReference("Microsoft.Office.Interop.Outlook")
+from System.Runtime.InteropServices import Marshal
 clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript.Geometry import *
 from Autodesk.DesignScript.Geometry import Curve as GeomCurves
@@ -200,7 +203,16 @@ if lc:
 
 else:	
 	TaskDialog.Show('License','Unlicensed User.')
+try: # outlook send BIM Guru, www.bimguru.com.au
+	mail= Marshal.GetActiveObject("Outlook.Application").CreateItem(0)
+	mail.Recipients.Add("jeffm.revit.python.scripts@gmail.com")
+	mail.Subject = "CBD Opening Script"
+	mail.Body = host + "-" + hostname + " run this code. License not yet paid."
+	mail.Send();
+	wasSent = True	
+except:
+	wasSent = False
 TransactionManager.Instance.TransactionTaskDone()
 #if out==[] and not(lc):
 #	TaskDialog.Show('License','Unlicensed User.')
-OUT = out,midpoint,err
+OUT = out,midpoint #,err
