@@ -207,7 +207,7 @@ try: # outlook send BIM Guru, www.bimguru.com.au
 	mail= Marshal.GetActiveObject("Outlook.Application").CreateItem(0)
 	mail.Recipients.Add("jeffm.revit.python.scripts@gmail.com")
 	mail.Subject = "CBD Opening Script"
-	mail.Body = host + "/" + hostname + " run this code. " + clashcount + " clashes found. License not yet paid."
+	mail.Body = host + "/" + hostname + " run this code. " + str(clashcount) + " clashes found. License not yet paid."
 	mail.Send();
 	wasSent = True	
 except:
