@@ -20,6 +20,13 @@ from Autodesk.DesignScript.Geometry import Solid as Sld
 from Autodesk.DesignScript.Geometry import Point as Pnt
 from Autodesk.DesignScript.Geometry import Line as Ln
 from Autodesk.DesignScript.Geometry import Surface as Srfc, PolyCurve as PlyCrv
+#get script
+clr.AddReference('DynamoRevitDS')
+import Dynamo 
+scriptname=(Dynamo.Applications.DynamoRevit()).RevitDynamoModel.CurrentWorkspace.FileName.ToString()
+name=os.path.basename(scriptname)
+filename,extention=os.path.splitext(name)
+#
 
 clr.AddReference('System')
 from System.Collections.Generic import List
@@ -206,7 +213,7 @@ else:
 try: # outlook send BIM Guru, www.bimguru.com.au
 	mail= Marshal.GetActiveObject("Outlook.Application").CreateItem(0)
 	mail.Recipients.Add("jeffm.revit.python.scripts@gmail.com")
-	mail.Subject = "CBD Opening Script"
+	mail.Subject = "CBD Opening Script - " + filename
 	mail.Body = host + "/" + hostname + " run this code. " + str(clashcount) + " clashes found. License not yet paid."
 	mail.Send();
 	wasSent = True	
