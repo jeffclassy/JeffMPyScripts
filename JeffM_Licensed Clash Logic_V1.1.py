@@ -21,6 +21,7 @@ from Autodesk.DesignScript.Geometry import Point as Pnt
 from Autodesk.DesignScript.Geometry import Line as Ln
 from Autodesk.DesignScript.Geometry import Surface as Srfc, PolyCurve as PlyCrv
 #get script
+import os
 clr.AddReference('DynamoRevitDS')
 import Dynamo 
 scriptname=(Dynamo.Applications.DynamoRevit()).RevitDynamoModel.CurrentWorkspace.FileName.ToString()
