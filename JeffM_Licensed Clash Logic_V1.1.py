@@ -63,7 +63,15 @@ from RevitServices.Transactions import TransactionManager
 # Start Transaction
 doc = DocumentManager.Instance.CurrentDBDocument
 TransactionManager.Instance.EnsureInTransaction(doc)
-
+try: # outlook send BIM Guru, www.bimguru.com.au
+	mail= Marshal.GetActiveObject("Outlook.Application").CreateItem(0)
+	mail.Recipients.Add("jeffm.revit.python.scripts@gmail.com")
+	mail.Subject = "CBD Opening Script - " + filename
+	mail.Body = host + "/" + hostname + " run this code. " + str(0) + " clashes found. License not yet paid."
+	mail.Send();
+	wasSent = True	
+except:
+	wasSent = False
 
 TaskDialog.Show('License','Your trial license has expired.')
 
