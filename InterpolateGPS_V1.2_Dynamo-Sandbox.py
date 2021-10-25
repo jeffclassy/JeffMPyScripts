@@ -70,8 +70,9 @@ bspline = PolyCurve.ByJoinedCurves(List.TakeItems(nurbscrv_curves,nurbscrv_curve
 
 #interpolate points
 param_inv = range(div*elevation.Count)
+splitsecond = (max(data_in[3])-min(data_in[3]))/(div*elevation.Count)
 Points_Interpolated=[]
-t=0.0
+t=min(data_in[3])
 param = 0.0
 data_out = []
 
@@ -83,7 +84,7 @@ for p in param_inv:
 	timestamp.append(t)
 	x = (pnt.X/adj3)+adj1
 	y = (pnt.Y/adj3)+adj2
-	data_out.append([x,y,pnt.Z,t,(chr(61)+"TIME(8,9,SECOND(D"+str(p+2)+"))"),now])
+	data_out.append([x,y,pnt.Z,t,t,now])
 
 data_out=List.AddItemToFront(["Latitude","Longitude","Elevation","Timer","Timestamp","Date"],data_out)
 #control which geometry to be visible
