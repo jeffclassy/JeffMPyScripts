@@ -1,6 +1,8 @@
 import clr
 import math
 #import sys
+import datetime 
+now = datetime.datetime.now().strftime("%y/%m/%d")
 
 clr.AddReference('ProtoGeometry')
 clr.AddReference('DSCoreNodes')
@@ -81,7 +83,7 @@ for p in param_inv:
 	timestamp.append(t)
 	x = (pnt.X/adj3)+adj1
 	y = (pnt.Y/adj3)+adj2
-	data_out.append([x,y,pnt.Z,t])
+	data_out.append([x,y,pnt.Z,t,0,now])
 
 data_out=List.AddItemToFront(["Latitude","Longitude","Elevation","Timer","Timestamp","Date"],data_out)
 #control which geometry to be visible
