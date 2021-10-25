@@ -1,0 +1,857 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "Jeff Mercado Scripts * jayperson.mercado@gmail.com",
+  "Name": "Create InterpolateGPS_V1.2_Dynamo-Sandbox",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "DSCore.Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "List": {
+        "Key": "List",
+        "Value": "BuiltIn.ds"
+      },
+      "DSOffice.Data": {
+        "Key": "DSOffice.Data",
+        "Value": "DSOffice.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Flight3",
+      "Id": "d3a72519e22442d19a4a4569d396620f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "83c47cb6b5a3405298293ec0a013b883",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "f9ce7730f75444a7903bb9c86a461324",
+      "Inputs": [
+        {
+          "Id": "2d28bed1a3c240cbb07dd49f8b9d1eee",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4643e0c63f7f42c6ad4cc12df98240a9",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "C:\\Users\\jaypm.mercado\\Downloads\\xfire_-2021-11-16 Mapped.xlsx",
+      "Id": "f8808293cba14fe8b6fe63ef45e360fe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8d2ff87336974b96be790686b67e35de",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "8f4fb6e479b74b9ea9ed114ee83793a1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4a77339a4c594440ae892421af6a3200",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "ac619cd2bbeb40e29b0a327d88416145",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1fcf78e6f11b477b882b0dc060830d82",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "4facc62a8bcf4fb09f867ac060a84705",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7f0ab54413314b97acdae57570328c91",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 4,
+      "MaximumValue": 20,
+      "MinimumValue": 1,
+      "StepValue": 1,
+      "Id": "7cab876e653f435a8327ce0c18ccaaaa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ea47dd547646489cbdb5f68ab4eaabaa",
+          "Name": "",
+          "Description": "Int32",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 2,
+      "MaximumValue": 25,
+      "MinimumValue": 1,
+      "StepValue": 1,
+      "Id": "85c4b36577344375b8e35fbcdec3d910",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "568a3d9b74654ad682a1c93d0e674125",
+          "Name": "",
+          "Description": "Int32",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 5,
+      "MaximumValue": 10,
+      "MinimumValue": 3,
+      "StepValue": 1,
+      "Id": "fe957286980f45d1a4f02844abdd955a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0d7e57c82841410d922d322a95faba44",
+          "Name": "",
+          "Description": "Int32",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "InputValue": 1.0,
+      "Id": "cd7b9c4fa00f457a8322a061ab81074d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "761170440f894b46b094ca2da61c7939",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "5384ac24f7714edfb1566e676ad70e17",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b396a30d810149c69ebaf86b373338fa",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "newsheet = sheetname + \"_interp\";\nDSOffice.Data.ExportExcel(path, newsheet, 0, 0, (data_out[0]), true);",
+      "Id": "c35a8c0b93f74a568ed3d59946ef37dc",
+      "Inputs": [
+        {
+          "Id": "55b6bbe8156644f287823f6a092e72d7",
+          "Name": "sheetname",
+          "Description": "sheetname",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f4cebab5edff4b9ab9096388f550ed06",
+          "Name": "path",
+          "Description": "path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8160879c4cec4aafb3a38c123b3bd47f",
+          "Name": "data_out",
+          "Description": "data_out",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b4c7964648e64337808a8d29486b8a63",
+          "Name": "",
+          "Description": "newsheet",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9ce870972ea44336b02bbb8fd6b87cbd",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "90f49a8708a74fe4a64a1c26522c4eed",
+      "Inputs": [
+        {
+          "Id": "8816c39a27ed468dba34a24cb26636b8",
+          "Name": "script",
+          "Description": "Python script to run.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8ddd7fc77e8b4b23a0f8f02395ad9416",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7950ece954a643f88684fd67c11c0f88",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "85b8db25460247ff8fd9764aaa9d3476",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "48ca8461f3474393956de42d7bbe2d4c",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a264de44004c4b20ac81b02f147d50e2",
+          "Name": "IN[4]",
+          "Description": "Input #4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "664880196eda43dc86aed7b84c4aad72",
+          "Name": "IN[5]",
+          "Description": "Input #5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "465e1804feb04fe5a950bc1db1a12414",
+          "Name": "IN[6]",
+          "Description": "Input #6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1be8660436764b2bb2361b18e98545f8",
+          "Name": "IN[7]",
+          "Description": "Input #7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8a6440f4fe264ddf8250c8daf5a8f051",
+          "Name": "IN[8]",
+          "Description": "Input #8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3474eae190e24f93a46808a829c1f3ef",
+          "Name": "IN[9]",
+          "Description": "Input #9",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4e9bc9e8ff484b15b625dbe29f3cee56",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs a IronPython script from a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.WebRequest, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "bdcb15f525054a2aa23368e56357f935",
+      "Inputs": [
+        {
+          "Id": "dca76264182340cb95228fa70dd07606",
+          "Name": "url",
+          "Description": "The url for the web request.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1ab7724d3e0243ccb7b86549d391779f",
+          "Name": "result",
+          "Description": "The result of the web request.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Make a web request given a url."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "https://raw.githubusercontent.com/jeffclassy/JeffMPyScripts/JeffM_FPV/InterpolateGPS_V1.2_Dynamo-Sandbox.py",
+      "Id": "260cb05abee24ffe8a534d553b2fe243",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4353035c6f184cc59724580bbcc608cf",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "83c47cb6b5a3405298293ec0a013b883",
+      "End": "55b6bbe8156644f287823f6a092e72d7",
+      "Id": "a384f12509204f17abcf55a9e46ab731"
+    },
+    {
+      "Start": "83c47cb6b5a3405298293ec0a013b883",
+      "End": "7950ece954a643f88684fd67c11c0f88",
+      "Id": "a80f8689b346405baed01d5b12523728"
+    },
+    {
+      "Start": "4643e0c63f7f42c6ad4cc12df98240a9",
+      "End": "8ddd7fc77e8b4b23a0f8f02395ad9416",
+      "Id": "565d62ae543a402593da3dace46a28e1"
+    },
+    {
+      "Start": "8d2ff87336974b96be790686b67e35de",
+      "End": "2d28bed1a3c240cbb07dd49f8b9d1eee",
+      "Id": "d184876a034744c48e21ceb05f75b477"
+    },
+    {
+      "Start": "8d2ff87336974b96be790686b67e35de",
+      "End": "f4cebab5edff4b9ab9096388f550ed06",
+      "Id": "3d55d0a785fc438da844c8c301077f81"
+    },
+    {
+      "Start": "4a77339a4c594440ae892421af6a3200",
+      "End": "465e1804feb04fe5a950bc1db1a12414",
+      "Id": "e9379532092541709d2b0971e836132d"
+    },
+    {
+      "Start": "1fcf78e6f11b477b882b0dc060830d82",
+      "End": "1be8660436764b2bb2361b18e98545f8",
+      "Id": "b99e37d3de2e4c689cbb987cb8247d52"
+    },
+    {
+      "Start": "7f0ab54413314b97acdae57570328c91",
+      "End": "8a6440f4fe264ddf8250c8daf5a8f051",
+      "Id": "0e3a29542bc546a691d983e3ada96376"
+    },
+    {
+      "Start": "ea47dd547646489cbdb5f68ab4eaabaa",
+      "End": "a264de44004c4b20ac81b02f147d50e2",
+      "Id": "4482fabd5b3f4434bc63d02a9856b704"
+    },
+    {
+      "Start": "568a3d9b74654ad682a1c93d0e674125",
+      "End": "48ca8461f3474393956de42d7bbe2d4c",
+      "Id": "08a247a72f33437f905533a2551f9e5a"
+    },
+    {
+      "Start": "0d7e57c82841410d922d322a95faba44",
+      "End": "85b8db25460247ff8fd9764aaa9d3476",
+      "Id": "23e1f27d0ed240eda0b15b34f1c53305"
+    },
+    {
+      "Start": "761170440f894b46b094ca2da61c7939",
+      "End": "664880196eda43dc86aed7b84c4aad72",
+      "Id": "01e27094a2d240c88357d65c1ea15e00"
+    },
+    {
+      "Start": "b396a30d810149c69ebaf86b373338fa",
+      "End": "3474eae190e24f93a46808a829c1f3ef",
+      "Id": "92457a7f10e848a6ac960ede82bc7c9e"
+    },
+    {
+      "Start": "4e9bc9e8ff484b15b625dbe29f3cee56",
+      "End": "8160879c4cec4aafb3a38c123b3bd47f",
+      "Id": "3631f78e159449b8af67c858e3fb22b1"
+    },
+    {
+      "Start": "1ab7724d3e0243ccb7b86549d391779f",
+      "End": "8816c39a27ed468dba34a24cb26636b8",
+      "Id": "59bbaf1582a24f6c93963f50c2627554"
+    },
+    {
+      "Start": "4353035c6f184cc59724580bbcc608cf",
+      "End": "dca76264182340cb95228fa70dd07606",
+      "Id": "de276ba4f12b4d2e8c65dd4e580084f4"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 10000.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 100.12053657238182,
+      "EyeY": 443.80195660723393,
+      "EyeZ": -146.48670048092336,
+      "LookX": 6.8371698790341924,
+      "LookY": -412.70195622576432,
+      "LookZ": -75.2826018872407,
+      "UpX": -0.0903927010130084,
+      "UpY": 0.034899496702508415,
+      "UpZ": 0.99529452160331877
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Excel Sheet",
+        "Id": "d3a72519e22442d19a4a4569d396620f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 575.15864651569063,
+        "Y": 560.30149860781751
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File From Path",
+        "Id": "f9ce7730f75444a7903bb9c86a461324",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 874.76637153809361,
+        "Y": 449.55638115145939
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Excel Path",
+        "Id": "f8808293cba14fe8b6fe63ef45e360fe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 571.23077124894337,
+        "Y": 448.88522572081047
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Show Path",
+        "Id": "8f4fb6e479b74b9ea9ed114ee83793a1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 556.681560830858,
+        "Y": 1086.5462709059864
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Show Original Coordinates",
+        "Id": "ac619cd2bbeb40e29b0a327d88416145",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 560.3370190417254,
+        "Y": 1157.8277060178968
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Show Interpolated Coordinates",
+        "Id": "4facc62a8bcf4fb09f867ac060a84705",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 562.93251608570517,
+        "Y": 1231.9004816745382
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Points multiplier",
+        "Id": "7cab876e653f435a8327ce0c18ccaaaa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 560.27578165294358,
+        "Y": 860.32138832973
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Smooth Factor",
+        "Id": "85c4b36577344375b8e35fbcdec3d910",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 558.68944633619617,
+        "Y": 786.07965176674543
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Lat Lon Value Adjuster",
+        "Id": "fe957286980f45d1a4f02844abdd955a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 557.55305557402994,
+        "Y": 711.42307032249425
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Log Interval in Seconds. 1=1s, 0.001=1ms",
+        "Id": "cd7b9c4fa00f457a8322a061ab81074d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 560.845649180437,
+        "Y": 940.40105522921544
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Export to Excel",
+        "Id": "5384ac24f7714edfb1566e676ad70e17",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 564.78764487340641,
+        "Y": 1371.5541949994818
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "c35a8c0b93f74a568ed3d59946ef37dc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1645.3422659034168,
+        "Y": 878.68051286393586
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "JeffM_FPV_Scripts",
+        "Id": "90f49a8708a74fe4a64a1c26522c4eed",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1484.7622074415667,
+        "Y": 869.454632917634
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Web Request",
+        "Id": "bdcb15f525054a2aa23368e56357f935",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1328.7268648398517,
+        "Y": 866.4060868391889
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "JeffM_fpv_InterpolateGPS_url",
+        "Id": "260cb05abee24ffe8a534d553b2fe243",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 569.85827114894892,
+        "Y": 219.06029353278325
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "35159439396c4df0a926409893c986be",
+        "Title": "",
+        "Nodes": [
+          "8f4fb6e479b74b9ea9ed114ee83793a1",
+          "ac619cd2bbeb40e29b0a327d88416145",
+          "4facc62a8bcf4fb09f867ac060a84705"
+        ],
+        "Left": 546.681560830858,
+        "Top": 1033.5462709059864,
+        "Width": 231.25095525484721,
+        "Height": 266.35421076855187,
+        "FontSize": 36.0,
+        "InitialTop": 1086.5462709059864,
+        "InitialHeight": 290.35421076855187,
+        "TextblockHeight": 43.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "0ca342e95de348dfa669b31af7ab3383",
+        "Title": "",
+        "Nodes": [
+          "7cab876e653f435a8327ce0c18ccaaaa",
+          "85c4b36577344375b8e35fbcdec3d910",
+          "fe957286980f45d1a4f02844abdd955a",
+          "cd7b9c4fa00f457a8322a061ab81074d"
+        ],
+        "Left": 547.55305557402994,
+        "Top": 658.42307032249425,
+        "Width": 321.72272607891364,
+        "Height": 349.97798490672119,
+        "FontSize": 36.0,
+        "InitialTop": 711.42307032249425,
+        "InitialHeight": 373.97798490672119,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "e90648d9ad814ced93af9c07c164ddce",
+        "Title": "",
+        "Nodes": [
+          "5384ac24f7714edfb1566e676ad70e17"
+        ],
+        "Left": 554.78764487340641,
+        "Top": 1318.5541949994818,
+        "Width": 155.0,
+        "Height": 121.0,
+        "FontSize": 36.0,
+        "InitialTop": 1371.5541949994818,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFF7BAC"
+      },
+      {
+        "Id": "3409503e623e474dbcb33000eadead4a",
+        "Title": "",
+        "Nodes": [
+          "d3a72519e22442d19a4a4569d396620f",
+          "f9ce7730f75444a7903bb9c86a461324",
+          "f8808293cba14fe8b6fe63ef45e360fe"
+        ],
+        "Left": 561.23077124894337,
+        "Top": 395.88522572081047,
+        "Width": 433.53560028915024,
+        "Height": 232.41627288700704,
+        "FontSize": 36.0,
+        "InitialTop": 448.88522572081047,
+        "InitialHeight": 256.41627288700704,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "c00d92dd5a7a47a48e7d0190e1eabb17",
+        "Title": "",
+        "Nodes": [
+          "260cb05abee24ffe8a534d553b2fe243"
+        ],
+        "Left": 559.85827114894892,
+        "Top": 166.06029353278325,
+        "Width": 221.0,
+        "Height": 201.0,
+        "FontSize": 36.0,
+        "InitialTop": 219.06029353278325,
+        "InitialHeight": 178.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -184.92339137245239,
+    "Y": -120.46274628553581,
+    "Zoom": 0.68685540340983087
+  }
+}
