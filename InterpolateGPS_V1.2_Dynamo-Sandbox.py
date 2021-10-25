@@ -83,7 +83,7 @@ for p in param_inv:
 	y = (pnt.Y/adj3)+adj2
 	data_out.append([x,y,pnt.Z,t])
 
-data_out=List.AddItemToFront(["Latitude","Longitude","Elevation","Timestamp","Date"],data_out)
+data_out=List.AddItemToFront(["Latitude","Longitude","Elevation","Timestamp","Time","Date"],data_out)
 #control which geometry to be visible
 visible = [bspline if IN[6] else 0, Points_Original if IN[7] else 0, Points_Interpolated if IN[8] else 0]
 	
