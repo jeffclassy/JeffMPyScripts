@@ -215,7 +215,7 @@ else:
 	task_dialog_err.MainIcon = TaskDialogIcon.TaskDialogIconError
 	task_dialog_err.TitleAutoPrefix = False
 	task_dialog_err.MainInstruction = "Unlicensed User"
-	task_dialog_err.MainContent = "For use and access of this code, email wxbsystems@gmail.com"
+	task_dialog_err.MainContent = "For use and access of this code, please contact wxbsystems@gmail.com"
 	task_dialog_err.CommonButtons = TaskDialogCommonButtons.Ok
 	task_dialog_err.Show()
 try: # outlook send BIM Guru, www.bimguru.com.au
