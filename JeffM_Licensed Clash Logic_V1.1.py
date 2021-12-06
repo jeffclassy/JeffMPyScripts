@@ -41,7 +41,7 @@ clr.AddReference('RevitAPI')
 from Autodesk.Revit.DB import *
 
 clr.AddReference('RevitAPIUI')
-from  Autodesk.Revit.UI import TaskDialog, TaskDialogIcon
+from  Autodesk.Revit.UI import TaskDialog, TaskDialogIcon, TaskDialogCommonButtons
 
 clr.AddReference('DSCoreNodes') 
 from DSCore.Web import WebRequestByUrl as Wb
