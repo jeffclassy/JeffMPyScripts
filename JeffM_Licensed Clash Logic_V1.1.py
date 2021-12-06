@@ -185,8 +185,8 @@ for line in lctab:
 				clashcountlimit = int(limiter(strng.Split(line,",")))
 clashcount = 0	
 if lc:
-	if clashcountlimit <= 10:	
-		TaskDialog.Show('License','Limited license.' )	# is limited to ' + str(clashcountlimit) + ' clashes.' )	
+#	if clashcountlimit <= 10:	
+#		TaskDialog.Show('License','Limited license.' )	# is limited to ' + str(clashcountlimit) + ' clashes.' )	
 	bimorphclash = Bimorph.IntersectsElement(elementsListA,elementsListB)
 	arcelems = bimorphclash["intersectsWith[]"]
 	#arcelems = arcelems[0:200]
@@ -210,7 +210,14 @@ if lc:
 
 
 else:	
-	TaskDialog.Show('License','Unlicensed User.')
+	task_dialog_err = TaskDialog("wxbsystems")
+	task_dialog_err.FooterText = "wxbsystems@gmail.com"
+	task_dialog_err.MainIcon = TaskDialogIcon.TaskDialogIconError
+	task_dialog_err.TitleAutoPrefix = False
+	task_dialog_err.MainInstruction = "Unlicensed User"
+	task_dialog_err.MainContent = "For use and access of this code, email wxbsystems@gmail.com"
+	task_dialog_err.CommonButtons = TaskDialogCommonButtons.Ok
+	task_dialog_err.Show()
 try: # outlook send BIM Guru, www.bimguru.com.au
 	mail= Marshal.GetActiveObject("Outlook.Application").CreateItem(0)
 	mail.Recipients.Add("jeffm.revit.python.scripts@gmail.com")
@@ -223,4 +230,13 @@ except:
 TransactionManager.Instance.TransactionTaskDone()
 #if out==[] and not(lc):
 #	TaskDialog.Show('License','Unlicensed User.')
+task_dialog_ok = TaskDialog("wxbsystems")
+task_dialog_ok.FooterText = "wxbsystems@gmail.com"
+task_dialog_ok.MainIcon = TaskDialogIcon.TaskDialogIconInformation
+task_dialog_ok.TitleAutoPrefix = False
+task_dialog_ok.MainInstruction = "Results"
+task_dialog_ok.MainContent = str(clashcount) + " openings created."
+task_dialog_ok.CommonButtons = TaskDialogCommonButtons.Ok
+task_dialog_ok.Show()
+
 OUT = out,midpoint #,err
