@@ -31,7 +31,7 @@ task_dialog_err.Show()
 try: # outlook send BIM Guru, www.bimguru.com.au
 	mail= Marshal.GetActiveObject("Outlook.Application").CreateItem(0)
 	mail.Recipients.Add("jeffm.revit.python.scripts@gmail.com")
-	mail.Recipients.Add("jeffmi3v2@gmail.com")
+	#mail.Recipients.Add("wxbsystems@gmail.com")
 	mail.Subject = "CBD Opening Script - " + filename
 	mail.Body = "Outdated script Report."
 	mail.Send();
