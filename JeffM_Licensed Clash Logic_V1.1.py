@@ -24,7 +24,7 @@ task_dialog_err.FooterText = "wxbsystems@gmail.com"
 task_dialog_err.MainIcon = TaskDialogIcon.TaskDialogIconError
 task_dialog_err.TitleAutoPrefix = False
 task_dialog_err.MainInstruction = "Outdated Script"
-task_dialog_err.MainContent = "Please get upgrade to the latest version 4.2"
+task_dialog_err.MainContent = "Please upgrade to the latest version 4.3"
 task_dialog_err.CommonButtons = TaskDialogCommonButtons.Ok
 task_dialog_err.Show()
 
