@@ -166,25 +166,27 @@ mepelems=IN[2] if isinstance(IN[2],list) else [IN[2]]
 url = '189204203135188135137145178161141136188174192183197141153210203186136156183167166203154161192157195210193173195145192206163141164210162200202177142195135189188193204123191193188149136'
 webdata = Wb(''.join(chop(ur1))+''.join(chop(url)))
 lctab = strng.Split(webdata,"\n")
-for a in arcelems:
-	elementsListA.Add(a)
-for m in mepelems:
-	elementsListB.Add(m)
-arcelems.Clear()
-mepelems.Clear()
+clashcountlimit = 1 
+lclist = []
+lcchop = []
+lcfinal = []
 for line in lctab:
-	if not strng.StartsWith(line,"<!DOCTYPE"):
-		if strng.Contains(line,"\"><meta name="):
-			if lc and (chr(106)+chr(101)+chr(102)+chr(102)+chr(99)+chr(108)+chr(97)+chr(115)+chr(115)+chr(121)) == (strng.Split(line,"\"><"))[0]:
-				lc=True
-			else:
-				lc=False
-				clashcountlimit = 1
-		else:
-			if verif(strng.Split(line,",")):
-				lc=True
-				clashcountlimit = int(limiter(strng.Split(line,",")))
-clashcount = 0	
+	if line.Contains('</style><div class="waffle-revisions-container">'):
+		lclist = strng.Split(line, '</div></th><td class="s1" dir="ltr">', '</td><td class="s1" dir="ltr">', '</td><td class="s2" dir="ltr">', '</td><td></td><td></td><td></td>')
+		lclist = lst.DropItems(lclist,3)		
+		lctab = []
+for line in lclist:
+	if line.Contains('<td>') or line.Contains('height:'):
+		pass
+	else:
+		lctab.append(line)
+for i in range(0, len(lctab), 4):		
+	lcchop.append(lctab[i:i + 4])
+for line in lcchop:
+	if verif(line):
+		lc=True
+		clashcountlimit = line[3]
+clashcount = 0
 if lc:
 #	if clashcountlimit <= 10:	
 #		TaskDialog.Show('License','Limited license.' )	# is limited to ' + str(clashcountlimit) + ' clashes.' )	
