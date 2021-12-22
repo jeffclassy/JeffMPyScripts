@@ -180,7 +180,7 @@ lctab2 = []
 for line in lctab:
 	if line.Contains('</style><div class="waffle-revisions-container">'):
 		lclist = strng.Split(line, '</div></th><td class="s0">', '</td><td class="s0">', '</td><td class="s1">', '</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>')
-		lclist = lst.DropItems(lclist,2)		
+		lclist = lst.DropItems(lclist,6)		
 		#lctab2 = []
 for line in lclist:
 	if line.Contains('<td>') or line.Contains('height:'):
