@@ -192,7 +192,7 @@ for i in range(0, len(lctab2), 4):
 for line in lcchop:
 	if verif(line):
 		lc=True
-		clashcountlimit = line[3]
+		clashcountlimit = int(line[3])
 clashcount = 0
 if lc:
 #	if clashcountlimit <= 10:	
