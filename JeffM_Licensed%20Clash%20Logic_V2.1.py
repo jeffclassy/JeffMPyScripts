@@ -178,18 +178,10 @@ lcchop = []
 lcfinal = []
 lctab2 = []
 for line in lctab:
-	if line.Contains('</style><div class="waffle-revisions-container">'):
-		lclist = strng.Split(line, '</div></th><td class="s0">', '</td><td class="s0">', '</td><td class="s1">', '</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>')
-		lclist = lst.DropItems(lclist,6)		
-		#lctab2 = []
+	if line.Contains('xxyyzz'):		
+		lclist.append(strng.Split(line,","))		
+
 for line in lclist:
-	if line.Contains('<td>') or line.Contains('height:'):
-		pass
-	else:
-		lctab2.append(line)
-for i in range(0, len(lctab2), 4):		
-	lcchop.append(lctab2[i:i + 4])
-for line in lcchop:
 	if verif(line):
 		lc=True
 		clashcountlimit = int(line[3])
