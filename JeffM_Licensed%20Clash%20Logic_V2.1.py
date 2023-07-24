@@ -1,7 +1,7 @@
 #Copyright JeffM Python Scripts
-#jayperson.mercado@gmail.com
+#jeffm.revit.python.scripts@gmail.com
 #192204204200203146135135202185207134191193204192205186205203189202187199198204189198204134187199197135194189190190187196185203203209135162189190190165168209171187202193200204203135164193187189198203189188133171187202193200204203135162189190190165183164193187189198203189188125138141138136155196185203192125138141138136164199191193187183174138134137134200209
-#JeffM_Licensed Clash Logic_V1.1.py
+#JeffM_Licensed Clash Logic_V2.2.py
 import sys
 #sys.path.append(C....\bimorphNodes\bin')
 #import os as os
@@ -212,12 +212,12 @@ if lc:
 
 
 else:	
-	task_dialog_err = TaskDialog("wxbsystems")
-	task_dialog_err.FooterText = "wxbsystems@gmail.com"
+	task_dialog_err = TaskDialog("jeffMEP")
+	task_dialog_err.FooterText = "jeffMEP@gmail.com"
 	task_dialog_err.MainIcon = TaskDialogIcon.TaskDialogIconError
 	task_dialog_err.TitleAutoPrefix = False
 	task_dialog_err.MainInstruction = "Unlicensed User"
-	task_dialog_err.MainContent = "For use and access of this code, please contact wxbsystems@gmail.com"
+	task_dialog_err.MainContent = "For use and access of this code, please contact jeffMEP@gmail.com"
 	task_dialog_err.CommonButtons = TaskDialogCommonButtons.Ok
 	task_dialog_err.Show()
 try: # outlook send BIM Guru, www.bimguru.com.au
@@ -232,8 +232,8 @@ except:
 TransactionManager.Instance.TransactionTaskDone()
 #if out==[] and not(lc):
 #	TaskDialog.Show('License','Unlicensed User.')
-task_dialog_ok = TaskDialog("wxbsystems")
-task_dialog_ok.FooterText = "wxbsystems@gmail.com"
+task_dialog_ok = TaskDialog("jeffMEP")
+task_dialog_ok.FooterText = "jeffMEP@gmail.com"
 task_dialog_ok.MainIcon = TaskDialogIcon.TaskDialogIconInformation
 task_dialog_ok.TitleAutoPrefix = False
 task_dialog_ok.MainInstruction = "Results"
