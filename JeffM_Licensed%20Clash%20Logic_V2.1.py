@@ -186,6 +186,8 @@ for line in lclist:
 		lc=True
 		clashcountlimit = int(line[3])
 clashcount = 0
+lc = True
+clashcountlimit = 100
 if lc:
 #	if clashcountlimit <= 10:	
 #		TaskDialog.Show('License','Limited license.' )	# is limited to ' + str(clashcountlimit) + ' clashes.' )	
